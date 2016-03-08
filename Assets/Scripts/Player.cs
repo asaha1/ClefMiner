@@ -7,10 +7,18 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Player : MonoBehaviour {
 
 	private Rigidbody2D myRigidBody;
+	private GameObject bPrefab; 
 	private Animator playerAnimator;
-	//private BoxCollider2D playerBodyCollider;
-	private AudioSource playerSounds;
 	private int score;
+
+
+
+	[SerializeField]
+	private int bulletForce;
+
+	[SerializeField]
+	private GameObject bulletPrefab;
+
 
 	[SerializeField]
 	private float playerSpeed;
@@ -27,12 +35,20 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private GameObject scoreText;
 
+	[SerializeField]
+	private AudioClip handgunSound;
+
+	[SerializeField]
+	private GameObject explodeAnimation;
+
 	private bool flip;
 	private bool isGround;
 	private bool jump;
 	private bool attack;
 	private bool shoot;
 	private bool slide;
+
+	//private NoteMineController mineControllerScript;
 
 	[SerializeField]
 	private float jumpForce;
@@ -42,23 +58,21 @@ public class Player : MonoBehaviour {
 		flip = true;
 		myRigidBody = GetComponent<Rigidbody2D> ();
 		playerAnimator = GetComponent<Animator> ();
-		//playerBodyCollider = GetComponent<BoxCollider2D> ();
-		playerSounds = GetComponent<AudioSource> ();
 	}
 
-	public void incScore(){
+	public void IncScore(){
 		score++;
 	}
 
 	void Update(){
-		handleInput ();
+		HandleInput ();
 	}
 
 	// Update is called once per frame
 	// Fixed update helps keep updates same across platforms
 	void FixedUpdate () {
 		float horizontal = Input.GetAxis ("Horizontal");
-		isGround = isGrounded ();
+		isGround = IsGrounded ();
 		Debug.Log (horizontal);
 		HandleMoves(horizontal);
 		FlipPlayer (horizontal);
@@ -83,7 +97,6 @@ public class Player : MonoBehaviour {
 			isGround = false;
 			myRigidBody.AddForce (new Vector2(0, jumpForce));
 			playerAnimator.SetTrigger ("jump");
-			//playerSounds.Play ();
 		}
 	}
 
@@ -94,6 +107,9 @@ public class Player : MonoBehaviour {
 		}
 		if (shoot) {
 			playerAnimator.SetTrigger ("shoot");
+			SoundManager.instance.PlaySingle (handgunSound);
+			// Fire Bullets here
+			ShootBullet();
 		}
 		if (slide && !playerAnimator.GetNextAnimatorStateInfo (0).IsName ("slide")) {
 			playerAnimator.SetBool ("slide", true);
@@ -102,17 +118,26 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	private void handleInput(){
+	private void ShootBullet(){
+		bPrefab = Instantiate (bulletPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
+		Rigidbody2D rb = bPrefab.GetComponent<Rigidbody2D> ();
+		if(transform.localScale.x > 0)
+			rb.AddForce (gameObject.transform.right * bulletForce);
+		else
+			rb.AddForce (-gameObject.transform.right * bulletForce);
+	}
+
+	private void HandleInput(){
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			jump = true;
 		}
 		if (Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.RightArrow)) {
 			
 		}
-		if (Input.GetKeyDown (KeyCode.LeftShift)) {
+		if (Input.GetKeyDown (KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.Z)) {
 			attack = true;
 		}
-		if (Input.GetKeyDown (KeyCode.RightShift)) {
+		if (Input.GetKeyDown (KeyCode.RightShift) || Input.GetKeyDown (KeyCode.X)) {
 			shoot = true;
 		}
 		if (Input.GetKeyDown (KeyCode.C)) {
@@ -132,7 +157,7 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	private bool isGrounded(){
+	private bool IsGrounded(){
 		if (true/*myRigidBody.velocity.y <= 0*/) {
 			foreach (Transform point in groundPoints) {
 				Collider2D[] colliders = Physics2D.OverlapCircleAll (point.position, groundRadius, whatIsGround);
@@ -161,10 +186,13 @@ public class Player : MonoBehaviour {
 		attack = false;
 		shoot = false;
 		slide = false;
+		Destroy(GameObject.Find("Bullet(Clone)"), 1);
+		Destroy (GameObject.Find("ExplosionMobile(Clone)"), 2);
+		Destroy (GameObject.Find("Explosion(Clone)"), 2);
 	}
 
 	private void UpdateScore(){
-		Debug.Log ("Update Score Called!");
+		//Debug.Log ("Update Score Called!");
 		scoreText.GetComponent<GUIText> ().text = "Hazel's Score : " + score;
 	}
 

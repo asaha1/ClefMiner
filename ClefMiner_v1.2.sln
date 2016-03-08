@@ -1,7 +1,11 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{7F94B897-843D-8170-B5F8-C0E9F1EB5D4C}") = "ClefMiner_v1.2", "Assembly-CSharp-firstpass.csproj", "{74C43F27-59F4-FD5D-B512-6B4504EEE50B}"
+EndProject
 Project("{7F94B897-843D-8170-B5F8-C0E9F1EB5D4C}") = "ClefMiner_v1.2", "Assembly-CSharp.csproj", "{E2BD741A-5CD1-D415-FB73-4FCFD20A30B2}"
+EndProject
+Project("{7F94B897-843D-8170-B5F8-C0E9F1EB5D4C}") = "ClefMiner_v1.2", "Assembly-CSharp-Editor.csproj", "{0F544AB9-6254-7FAF-5CEA-AE5ED0B9F9C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74C43F27-59F4-FD5D-B512-6B4504EEE50B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C43F27-59F4-FD5D-B512-6B4504EEE50B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C43F27-59F4-FD5D-B512-6B4504EEE50B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C43F27-59F4-FD5D-B512-6B4504EEE50B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2BD741A-5CD1-D415-FB73-4FCFD20A30B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2BD741A-5CD1-D415-FB73-4FCFD20A30B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2BD741A-5CD1-D415-FB73-4FCFD20A30B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2BD741A-5CD1-D415-FB73-4FCFD20A30B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F544AB9-6254-7FAF-5CEA-AE5ED0B9F9C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F544AB9-6254-7FAF-5CEA-AE5ED0B9F9C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F544AB9-6254-7FAF-5CEA-AE5ED0B9F9C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F544AB9-6254-7FAF-5CEA-AE5ED0B9F9C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
