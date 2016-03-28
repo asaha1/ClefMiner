@@ -58,6 +58,7 @@ public class Player : MonoBehaviour {
 		flip = true;
 		myRigidBody = GetComponent<Rigidbody2D> ();
 		playerAnimator = GetComponent<Animator> ();
+
 	}
 
 	public void IncScore(){
@@ -193,7 +194,7 @@ public class Player : MonoBehaviour {
 
 	private void UpdateScore(){
 		//Debug.Log ("Update Score Called!");
-		scoreText.GetComponent<GUIText> ().text = "Hazel's Score : " + score;
+		scoreText.GetComponent<GUIText> ().text = "Score : " + score;
 	}
 
 }
