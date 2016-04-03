@@ -1,0 +1,40 @@
+The NoteMine:
+
+Pops open when hit by bullet.
+The coin starts moving away from the player(Finalise speed).
+Explode when caret blasted.
+Mobile Explode when shoot with -50 on hitScore, +100 false hitScore.
+Good sound when touches player and get +100
+Disappear on timeout with -50.
+
+
+The NoteMineOpp:
+
+Pops open when hit by bullet.
+The coin starts moving towards the player(Finalise speed).
+Explode when caret blasted.
+Mobile Explode when shoot with +100.
+Bad sound when touches player and get -50, +100 falseHitScore, one life lost. MurderHazel happens.
+Disappear on timeout with -50.
+
+
+Basically, we have three events where 2 scores gets updates:
+1. When you shoot the coin.
+
+Friend: -50 hitScore, +100 falseHitScore
+Opp: +100 hitScore
+
+2. When the coin touches you.
+
+Friend: +100 hitScore
+Opp: -50 hitScore, +100 falseHitScore, MurderHazel, Life Gone
+
+3. When the coin times out.
+
+Friend & Opp : -50 points.
+
+
+Update the Mines Remaining on every CaretBlast!
+Life Gone when Hell wall is touched!
+
+

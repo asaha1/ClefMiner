@@ -1,0 +1,40 @@
+# Identify the Clefs.
+The Story line of Level 1:
+
+1. The player Enters the arena.
+2. A tutorial page is shown explaining the details of what to, the page has a button for OKAY!.
+3. The Score Board is initalized with Correct Notes, Wrong Notes, Life Left(Initalized to 3 lives), Boxes left to find.
+4. There are a number of note miner boxes lying in the arena, shoot the box to pop open the note.
+5. The Notes start moving in random directions when pops out.
+6. Notes can be either allowed to touch the player or can be shoot down or cut with a knife.
+7. If a friend note touches you, you get +100 points and if you shoot them, you loose 50 points from you Frindship Score.
+8. If an enemy note touches, you go dead with death animation and loose a life. Shoot an enemy note and you get +100 points in Enmity Score
+9. Final Score is the addiction of Correct Note Score(Friendship Score) and Wrong Notes Score(Enmity Score).
+10. When fall down to hell wall, loose a life.
+11. Loose all 3 lives, then Go Back to Main Menu with Game Over(Or Retat as of now with Game Over Animation!).
+12. All the time, boxes left to find keeps getting updated.
+13. Game Ends when all the Boxes are found, ends with proper cheering up!
+14. Walking Sound needed?
+15. There will be a level timer.
+16. There'a a timer for every Note Mine. On the expiration,  no matter enemy or frind, you loose 20 points.
+17. Hit a wrong Note, player dies. Press R to resurrect. Die thrice to Game Over.
+18. Give popups or some signal on correct and wrong note selection.
+
+17. The good notes dissapear after a timeout.
+18. Add some bonuses when uncovered, it uncovers everybody for all.
+
+
+Feedbacks:
+
+1. Consecutive 3 wrong note selection will pop up a guide to clarify the specific Notes on which he makes mistakes.
+2. If the player wants, then put spot lights on the notes that needs to be found.
+3. if not able to find more boxes, then after 1 minutes give hints on where the next boxes are located.
+4. Depending on the final scores, gives feedback on what were the most mistaken notes and show the notes again once.
+
+
+Assets:
+1. Mild background Music.
+2. Poping out sound when the note is uncovered.
+3. As soon as shot or touched, the audio feedback should be played. Need the audio for the notes.(Mild Clossion sound for clefs.)
+4. 3 Sprites for 3 clefs.
+5. Name the asset images accordingly and set /reset the images in the sprite Renderer from code, randomly.
