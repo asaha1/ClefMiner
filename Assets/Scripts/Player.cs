@@ -3,13 +3,20 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
 	private Rigidbody2D myRigidBody;
 	private GameObject bPrefab; 
 	private Animator playerAnimator;
-	private int score;
+
+
+	// Scores
+	private int hitScore;
+	private int falseHitScore;
+	private int lifeScore;
+	private int boxesScore;
 
 
 
@@ -39,6 +46,9 @@ public class Player : MonoBehaviour {
 	private AudioClip handgunSound;
 
 	[SerializeField]
+	private AudioClip footstep;
+
+	[SerializeField]
 	private GameObject explodeAnimation;
 
 	private bool flip;
@@ -54,16 +64,33 @@ public class Player : MonoBehaviour {
 	private float jumpForce;
 	// Use this for initialization
 	void Start () {
-		score = 0;
+		hitScore = 0;
+		falseHitScore = 0;
+		lifeScore = 3;
+		boxesScore = 20;
 		flip = true;
 		myRigidBody = GetComponent<Rigidbody2D> ();
 		playerAnimator = GetComponent<Animator> ();
 
 	}
 
-	public void IncScore(){
-		score++;
+	public void IncHitScore(){
+		hitScore += 100;
 	}
+
+	public void DecHitScore(){
+		hitScore -= 50;
+	}
+
+	public void IncFalseHitScore(){
+		falseHitScore += 100;
+	}
+
+	public void DecFalseHitScore(){
+		falseHitScore -= 50;
+	}
+
+
 
 	void Update(){
 		HandleInput ();
@@ -90,6 +117,7 @@ public class Player : MonoBehaviour {
 
 		if (!playerAnimator.GetBool ("slide") && !playerAnimator.GetNextAnimatorStateInfo (0).IsTag ("Attack")) {
 			myRigidBody.velocity = new Vector2(horizontal * playerSpeed, myRigidBody.velocity.y);
+
 		}
 
 		playerAnimator.SetFloat ("speed", Mathf.Abs (horizontal));
@@ -120,6 +148,7 @@ public class Player : MonoBehaviour {
 	}
 
 	private void ShootBullet(){
+		//playerAnimator.SetTrigger ("death");
 		bPrefab = Instantiate (bulletPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
 		Rigidbody2D rb = bPrefab.GetComponent<Rigidbody2D> ();
 		if(transform.localScale.x > 0)
@@ -132,8 +161,12 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			jump = true;
 		}
+		if (Input.GetKeyDown (KeyCode.R)) {
+			ResurrectHazel ();
+		}
+
 		if (Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.RightArrow)) {
-			
+			//SoundManager.instance.RandomizeSfx (footstep);			
 		}
 		if (Input.GetKeyDown (KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.Z)) {
 			attack = true;
@@ -147,7 +180,15 @@ public class Player : MonoBehaviour {
 
 	}
 
+	public void MurderHazel(){
+		playerAnimator.SetTrigger ("death");
+		//myRigidBody.isKinematic = true;
+	}
 
+	public void ResurrectHazel(){
+		//playerAnimator.ResetTrigger ("death");
+		playerAnimator.SetTrigger ("resurrect");
+	}
 
 	private void FlipPlayer(float hor){
 		if (hor > 0 && flip == false || hor < 0 && flip == true) {
@@ -187,14 +228,23 @@ public class Player : MonoBehaviour {
 		attack = false;
 		shoot = false;
 		slide = false;
-		Destroy(GameObject.Find("Bullet(Clone)"), 1);
+		Destroy(GameObject.Find("Bullet(Clone)"), 0.2f);
 		Destroy (GameObject.Find("ExplosionMobile(Clone)"), 2);
 		Destroy (GameObject.Find("Explosion(Clone)"), 2);
+
 	}
 
 	private void UpdateScore(){
 		//Debug.Log ("Update Score Called!");
-		scoreText.GetComponent<GUIText> ().text = "Score : " + score;
+		//scoreText.GetComponent<GUIText> ().text = "Score : " + score;
+		Text falseHitText = scoreText.transform.GetChild (0).GetComponent<Text> ();
+		falseHitText.text = "False Hit Score : " + falseHitScore;
+		Text lifeLeftText = scoreText.transform.GetChild (1).GetComponent<Text> ();
+		lifeLeftText.text = "Lives Remaining : " + lifeScore;
+		Text boxesLeftText = scoreText.transform.GetChild (2).GetComponent<Text> ();
+		boxesLeftText.text = "Mines Remaining : " + boxesScore;
+		Text hitText = scoreText.transform.GetChild (3).GetComponent<Text> ();
+		hitText.text = "True Hits Score : " + hitScore;
 	}
 
 }
