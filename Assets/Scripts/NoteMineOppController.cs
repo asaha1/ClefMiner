@@ -33,7 +33,7 @@ public class NoteMineOppController : MonoBehaviour {
 			Instantiate (explodeAnimation, gameObject.transform.position, Quaternion.identity);
 			SoundManager.instance.PlaySingle (caretBlast);
 			caretRenderer.enabled = false;
-			gameObject.transform.GetChild (0).GetComponent<Rigidbody2D> ().gravityScale = 5;
+			gameObject.transform.GetChild (0).GetComponent<Rigidbody2D> ().gravityScale = 10;
 			//gameObject.transform.GetChild (0).GetComponent<Rigidbody2D> ().isKinematic = true;
 			// Disable the left and right colliders
 			for (int i =0; i< noteMineColliders.Length;i++){

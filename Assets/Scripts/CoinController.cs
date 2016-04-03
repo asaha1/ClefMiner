@@ -25,7 +25,7 @@ public class CoinController : MonoBehaviour {
 		if (coinRb.gravityScale > 0) {
 			// Make the Note Move. Depending on the type of note, it will be either
 			// Towards or away from the player.
-			Vector2 newPosition = new Vector2(gameObject.transform.position.x - coinSpeed, gameObject.transform.position.y);
+			Vector2 newPosition = new Vector2(gameObject.transform.position.x + coinSpeed, gameObject.transform.position.y);
 
 			coinRb.MovePosition (newPosition);
 

@@ -1,10 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NoteMineController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CoinOppController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="58" Column="15" />
-      <File FileName="Assets/Scripts/CoinController.cs" Line="43" Column="20" />
-      <File FileName="Assets/Scripts/NoteMineController.cs" Line="44" Column="4" />
+      <File FileName="Assets/Scripts/Player.cs" Line="231" Column="48" />
+      <File FileName="Assets/Scripts/CoinController.cs" Line="46" Column="85" />
+      <File FileName="Assets/Scripts/NoteMineController.cs" Line="24" Column="27" />
+      <File FileName="Assets/Scripts/BulletController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/NoteMineOppController.cs" Line="49" Column="45" />
+      <File FileName="Assets/Scripts/CoinOppController.cs" Line="53" Column="43" />
+      <File FileName="Assets/Scripts/HellWall.cs" Line="3" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

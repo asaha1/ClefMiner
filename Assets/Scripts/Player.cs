@@ -148,13 +148,18 @@ public class Player : MonoBehaviour {
 	}
 
 	private void ShootBullet(){
-		//playerAnimator.SetTrigger ("death");
-		bPrefab = Instantiate (bulletPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
-		Rigidbody2D rb = bPrefab.GetComponent<Rigidbody2D> ();
-		if(transform.localScale.x > 0)
+		if (transform.localScale.x > 0) {
+			bulletPrefab.GetComponent<SpriteRenderer> ().flipX = false;
+			bPrefab = Instantiate (bulletPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
+			Rigidbody2D rb = bPrefab.GetComponent<Rigidbody2D> ();
 			rb.AddForce (gameObject.transform.right * bulletForce);
-		else
+		}
+		else {			
+			bulletPrefab.GetComponent<SpriteRenderer> ().flipX = true;
+			bPrefab = Instantiate (bulletPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
+			Rigidbody2D rb = bPrefab.GetComponent<Rigidbody2D> ();
 			rb.AddForce (-gameObject.transform.right * bulletForce);
+		}
 	}
 
 	private void HandleInput(){
