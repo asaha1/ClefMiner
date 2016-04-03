@@ -1,8 +1,8 @@
 # Clef Miner
-Learn staffs the most amazing way!
+##Learn staffs the most amazing way!
 
 
-Team Members
+##Team Members
 
 Himangshu Ranjan Borah
 [hborah@ncsu.edu]
@@ -12,37 +12,38 @@ Arnab Saha
 
 
 
-Subject Matter and Learning Objectives:
+##Subject Matter and Learning Objectives:
 
 The game is centered around the basic concepts of the Musical Notation theory. The staffs are the fundamental latticework of music notation used to express music in written form which is one of the very basic things anybody has to learn whenever he or she is starting off with any kind of musical education. Frequently we see that learners find it very difficult in the beginning to grab the concepts of even basic notations and often jumble up different notations and their audio feedbacks. Before going to start off with reading and writing complex scales and full songs in these symbolic notations, it is very important to grab the basic symbol to sound mapping at the very beginning of music education. Here we focus on teaching the rudimentary staff notations with their corresponding notes’ audio feedback and the relevant basic concepts a student needs to get themselves started with any kind of formal musical notation education in the most fun way.
 
-Target Audience:
+##Target Audience:
 
 The target audience domain of our game can be novices who has started to learn music or can be amateurs who have trouble in learning the notations spread across different age groups. Basically, anybody who is starting off with any kind of formal education in music will find it very useful. Even people who don’t belong to any of these categories may find it interesting to play the game as one can learn some basic idea of written music in a fun way.
 
-Overview (Genre, Objective, Gameplay):
+##Overview (Genre, Objective, Gameplay):
 
 The exact genre of the game would be a Music Game [Wikipedia]. However, depending on the actual gameplay mechanics and the arena layout, we will be able to categorize it further later(for e.g. Platformer). The objective of the gameplay would be to mainly teach the players the mapping of staff notations to their corresponding sounds. The initial stages of the game start off with the single notes and their corresponding staff formations. Then it incrementally builds upon the baseline and teaches about various related concepts like pitches, different clefs, duration signifiers, bars, rests etc. Then slowly the game moves into the domain of chords and scales progressively. During the gameplay, the backend student modeling will be used to give constructive immediate feedback based on students’ performance and keep suggesting new levels. The main idea behind this is to try to use the symmetry and repetitiveness of musical theory to dynamically generate new levels depending on what the ITS learns about the ability and progress of the player. The main concepts that we are trying to focus in the very beginning of the game are listed below (References for the technical terms given later). 
 
 A small introductory tutorial explaining the navigation and rules of the game. It also explains the notations very briefly.
 Introduction to 3 major Clefs F, C and G.
+
 First level consists of identifying different clefs.
+
 Second level focuses on different notes located in different clefs.
+
 Third level teaches the note duration and bars related concepts.
+
 Later states will simulate chords and scales and so on.
 
-Basic Gameplay Idea:
+##Basic Gameplay Idea:
 
 We have roughly thought about the layout and gameplay mechanics of the first few levels. The levels can be seamlessly generated or can be discrete.  
 
-Level 1: The Clefs are the basic building blocks of the notation theory which tell us about the pitch of the notes. There are three major Clefs namely F, C and G which we will be covering in our environment. The idea of this stage is to familiarize the player with the symbols of the clefs, which are shown on the pic on the left. (Source: Wikipedia)
+##Level 1: 
+The Clefs are the basic building blocks of the notation theory which tell us about the pitch of the notes. There are three major Clefs namely F, C and G which we will be covering in our environment. The idea of this stage is to familiarize the player with the symbols of the clefs, which are shown on the pic on the left. (Source: Wikipedia)
 
-Level 2: After the Clefs, there come actual notes. The notes are usually drawn using some symbols on a 5 line ruled sheet (Called the “Staff”). The exact location of the symbols on the Staff with respect to the positioning of one Clef describes a note which corresponds to one sound. For example, the following shows different notes and theirs corresponding staff notations.  (Source: The Internet)
-
-    
-
-
-Staff for “A” note 	Staff for “G” note
+##Level 2: 
+After the Clefs, there come actual notes. The notes are usually drawn using some symbols on a 5 line ruled sheet (Called the “Staff”). The exact location of the symbols on the Staff with respect to the positioning of one Clef describes a note which corresponds to one sound. For example, the following shows different notes and theirs corresponding staff notations.  (Source: The Internet)
 
 
 The idea is to familiarize the player with different notations. We have ideated a few gameplay tactics to implement in various levels.
@@ -59,11 +60,11 @@ Gameplay Mechanics 5: For this purpose we plan to create a 3D level where the ai
 
 Gameplay Mechanics 6: Another very interesting approach would be to design a horizontally movable world where there will be a moving character who keeps searching for a specific note at one time as directed by the gameplay(Platformer Genre). The notes will be hidden at places and the player has to hunt for the treasure. As and when the player uncovers treasures, new objects will appear dynamically and the player will be moving horizontally and vertically to find the hidden treasure.
 
-Platforms/Technologies:
+##Platforms/Technologies:
 
 The game will be mainly designed in Unity. But few of our resources like staffs and notes might be very much customized and hence we will also be using some photo editing tools like Photoshop to design those resources. We will record and edit the Audio with POD HD 300 Edit and Apple Garage Band using feedbacks from synthesizers and Electric Guitar processing units(Line 6 POD HD 300). We are planning to use Crescendo for designing the staff notations.
 
-References:
+##References:
 
 https://method-behind-the-music.com/theory/notation/#staff
 http://www.musicnotes.com/blog/2014/04/11/how-to-read-sheet-music/
