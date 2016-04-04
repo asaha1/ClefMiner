@@ -7,25 +7,30 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
+	/* Private Fields. */
 	private Rigidbody2D myRigidBody;
 	private GameObject bPrefab; 
 	private Animator playerAnimator;
-
-
 	// Scores
 	private int hitScore;
 	private int falseHitScore;
 	private int lifeScore;
 	private int boxesScore;
+	// Movements.
+	private bool flip;
+	private bool isGround;
+	private bool jump;
+	private bool attack;
+	private bool shoot;
+	private bool slide;
 
 
-
+	/* Private Serialized. */
 	[SerializeField]
 	private int bulletForce;
 
 	[SerializeField]
 	private GameObject bulletPrefab;
-
 
 	[SerializeField]
 	private float playerSpeed;
@@ -51,17 +56,12 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private GameObject explodeAnimation;
 
-	private bool flip;
-	private bool isGround;
-	private bool jump;
-	private bool attack;
-	private bool shoot;
-	private bool slide;
-
-	//private NoteMineController mineControllerScript;
-
 	[SerializeField]
 	private float jumpForce;
+
+
+
+
 	// Use this for initialization
 	void Start () {
 		hitScore = 0;
@@ -88,6 +88,18 @@ public class Player : MonoBehaviour {
 
 	public void DecFalseHitScore(){
 		falseHitScore -= 50;
+	}
+
+	public void IncLife(){
+		lifeScore++;
+	}
+
+	public void DecLife(){
+		lifeScore--;
+	}
+
+	public void DecMines(){
+		boxesScore--;
 	}
 
 
@@ -166,6 +178,7 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			jump = true;
 		}
+
 		if (Input.GetKeyDown (KeyCode.R)) {
 			ResurrectHazel ();
 		}
@@ -173,12 +186,15 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.RightArrow)) {
 			//SoundManager.instance.RandomizeSfx (footstep);			
 		}
+
 		if (Input.GetKeyDown (KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.Z)) {
 			attack = true;
 		}
+
 		if (Input.GetKeyDown (KeyCode.RightShift) || Input.GetKeyDown (KeyCode.X)) {
 			shoot = true;
 		}
+
 		if (Input.GetKeyDown (KeyCode.C)) {
 			slide = true;
 		}
@@ -188,6 +204,7 @@ public class Player : MonoBehaviour {
 	public void MurderHazel(){
 		playerAnimator.SetTrigger ("death");
 		//myRigidBody.isKinematic = true;
+		DecLife ();
 	}
 
 	public void ResurrectHazel(){
@@ -241,7 +258,6 @@ public class Player : MonoBehaviour {
 
 	private void UpdateScore(){
 		//Debug.Log ("Update Score Called!");
-		//scoreText.GetComponent<GUIText> ().text = "Score : " + score;
 		Text falseHitText = scoreText.transform.GetChild (0).GetComponent<Text> ();
 		falseHitText.text = "False Hit Score : " + falseHitScore;
 		Text lifeLeftText = scoreText.transform.GetChild (1).GetComponent<Text> ();

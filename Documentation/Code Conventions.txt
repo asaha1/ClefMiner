@@ -1,0 +1,5 @@
+Code Conventions:
+
+1. Variable Names Format: "variableNamesFormat"
+2. Class names and Fucntion Names : "ClassName" and "FunctionName"
+3. Keep the Private, Public and Private Serialized Variable Declarations Separately.

@@ -2,16 +2,18 @@
 using System.Collections;
 
 public class NoteMineController : MonoBehaviour {
+	/* Priate Fields. */
+	private Renderer caretRenderer;
+	private Renderer coinRenderer;
+	private BoxCollider2D[] noteMineColliders;
 
+
+	/* Private Serialized. */
 	[SerializeField]
 	private GameObject explodeAnimation;
 
 	[SerializeField]
 	private AudioClip caretBlast;
-
-	private Renderer caretRenderer;
-	private Renderer coinRenderer;
-	private BoxCollider2D[] noteMineColliders;
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +41,13 @@ public class NoteMineController : MonoBehaviour {
 			for (int i =0; i< noteMineColliders.Length;i++){
 				noteMineColliders [i].isTrigger = true;
 			}
+
+			// Set the direction of the coin movement.
+			Transform playerTransform = GameObject.Find ("Hazel").GetComponent<Transform> ();
+			if (playerTransform.position.x < gameObject.transform.position.x)
+				gameObject.transform.GetChild (0).GetComponent<CoinController> ().SetDirection(1);
+			else
+				gameObject.transform.GetChild (0).GetComponent<CoinController> ().SetDirection(-1);
 
 		}
 	}

@@ -11,7 +11,6 @@ public class StartNote : MonoBehaviour {
 		Debug.Log ("Note Trigger Enter!");
 		if (item.gameObject.name == "Hazel") {
 			drawNote = true;
-
 		}
 	}
 

@@ -3,8 +3,6 @@ using System.Collections;
 
 public class BulletController : MonoBehaviour {
 
-	//private Renderer targetRenderer;
-
 	// Use this for initialization
 	void Start () {
 	
