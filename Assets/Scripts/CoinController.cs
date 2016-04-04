@@ -21,6 +21,9 @@ public class CoinController : MonoBehaviour {
 	[SerializeField]
 	private AudioClip coinDestroy;
 
+	[SerializeField]
+	private AudioClip coinTimeoutSound;
+
 
 	// Use this for initialization
 	void Start () {
@@ -80,6 +83,13 @@ public class CoinController : MonoBehaviour {
 		default:
 			break;			
 		}
+	}
+
+	public void OnBeforeTimeout(){
+		Instantiate (coinDestroyAnimation, transform.position, Quaternion.identity);
+		SoundManager.instance.PlaySingle (coinTimeoutSound);
+		Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
+		hz.DecHitScore ();
 	}
 
 	void OnDestroy(){

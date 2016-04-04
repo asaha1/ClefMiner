@@ -48,11 +48,20 @@ public class NoteMineOppController : MonoBehaviour {
 				gameObject.transform.GetChild (0).GetComponent<CoinOppController> ().SetDirection(1);
 			else
 				gameObject.transform.GetChild (0).GetComponent<CoinOppController> ().SetDirection(-1);
-			
 
+			// Set the timeout for the coin, then destroy.
+			StartCoroutine (TimeoutForCoin ());
 		}
 	}
 
+	IEnumerator TimeoutForCoin(){
+		yield return new WaitForSeconds(5);
+		// Call the OnBeforeTimeout for its child Coin.
+		gameObject.transform.GetChild (0).GetComponent<CoinOppController> ().OnBeforeTimeout ();
+		//Destroy the coin
+		Destroy (gameObject.transform.GetChild (0).gameObject);
+		Destroy (gameObject);
+	}
 
 	void OnTriggerEnter2D(Collider2D item){
 		Debug.Log ("Trigger Enter!");
