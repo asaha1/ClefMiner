@@ -10,7 +10,7 @@ The Story line of Level 1:
 7. If a friend note touches you, you get +100 points and if you shoot them, you loose 50 points from you Frindship Score.
 8. If an enemy note touches, you go dead with death animation and loose a life. Shoot an enemy note and you get +100 points in Enmity Score
 9. Final Score is the addiction of Correct Note Score(Friendship Score) and Wrong Notes Score(Enmity Score).
-10. When fall down to hell wall, loose a life.
+10. When fall down to hell wall, restart the level.
 11. Loose all 3 lives, then Go Back to Main Menu with Game Over(Or Retat as of now with Game Over Animation!).
 12. All the time, boxes left to find keeps getting updated.
 13. Game Ends when all the Boxes are found, ends with proper cheering up!
@@ -22,7 +22,8 @@ The Story line of Level 1:
 
 17. The good notes dissapear after a timeout.
 18. Add some bonuses when uncovered, it uncovers everybody for all.
-
+19. Dynamic Ladders.
+20. Show popups everywhere for feedbacks. Like press R for resurrect, Game Completed, Game Over, Note Expiration, Level Expiration etc.
 
 Feedbacks:
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour {
 	private bool attack;
 	private bool shoot;
 	private bool slide;
+	private bool freezePlayer;
 
 
 	/* Private Serialized. */
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour {
 		lifeScore = 3;
 		boxesScore = 20;
 		flip = true;
+		freezePlayer = false;
 		myRigidBody = GetComponent<Rigidbody2D> ();
 		playerAnimator = GetComponent<Animator> ();
 
@@ -123,6 +126,8 @@ public class Player : MonoBehaviour {
 	}
 
 	private void HandleMoves(float horizontal){
+		if (freezePlayer)
+			return;
 		if (myRigidBody.velocity.y < 0) {
 			playerAnimator.SetBool ("land", true);
 		}
@@ -142,6 +147,8 @@ public class Player : MonoBehaviour {
 	}
 
 	private void HandleAttacks(){
+		if (freezePlayer)
+			return;
 		if (attack && !playerAnimator.GetNextAnimatorStateInfo (0).IsTag ("Attack")) {
 			playerAnimator.SetTrigger ("attack");
 			myRigidBody.velocity = Vector2.zero;
@@ -203,16 +210,36 @@ public class Player : MonoBehaviour {
 
 	public void MurderHazel(){
 		playerAnimator.SetTrigger ("death");
-		//myRigidBody.isKinematic = true;
+		freezePlayer = true;
 		DecLife ();
+		// TODO : Show the info that press R to wake her up.
 	}
 
 	public void ResurrectHazel(){
 		//playerAnimator.ResetTrigger ("death");
 		playerAnimator.SetTrigger ("resurrect");
+		freezePlayer = false;
 	}
 
+
+
+	void AddRigidbody()
+	{
+		if(!gameObject.GetComponent<Rigidbody2D>())
+			gameObject.AddComponent<Rigidbody2D>();;
+
+	}
+	void RemoveRigidbody()
+	{
+		if(gameObject.GetComponent<Rigidbody2D>())
+			Destroy(gameObject.GetComponent<Rigidbody2D>());
+	}
+
+
+
 	private void FlipPlayer(float hor){
+		if (freezePlayer)
+			return;
 		if (hor > 0 && flip == false || hor < 0 && flip == true) {
 			flip = !flip;
 			Vector3 myScale = transform.localScale;
@@ -253,7 +280,21 @@ public class Player : MonoBehaviour {
 		Destroy(GameObject.Find("Bullet(Clone)"), 0.2f);
 		Destroy (GameObject.Find("ExplosionMobile(Clone)"), 2);
 		Destroy (GameObject.Find("Explosion(Clone)"), 2);
+		// Check if Game Over or Completed!
+		if (boxesScore == 0)
+			GameCompleted ();
+		if (lifeScore == 0)
+			GameOver ();
+			
+	}
 
+	private void GameCompleted(){
+		// Hurray Game Completed.
+	}
+
+	private void GameOver(){
+		// Alas! Game is over !. Hazel dead thrice.
+		SceneManager.LoadScene ("Level2_G");
 	}
 
 	private void UpdateScore(){

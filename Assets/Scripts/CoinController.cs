@@ -8,6 +8,7 @@ public class CoinController : MonoBehaviour {
 	/* Private Variables. */
 	private Rigidbody2D coinRb;
 	private int dir;
+	private SpriteRenderer coinSprite;
 
 
 
@@ -28,6 +29,9 @@ public class CoinController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		coinRb = GetComponent<Rigidbody2D> ();
+		coinSprite = GetComponent<SpriteRenderer> ();
+
+
 	}
 
 	public void SetDirection(int dirc){

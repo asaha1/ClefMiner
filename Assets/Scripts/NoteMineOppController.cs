@@ -39,7 +39,7 @@ public class NoteMineOppController : MonoBehaviour {
 			//gameObject.transform.GetChild (0).GetComponent<Rigidbody2D> ().isKinematic = true;
 			// Disable the left and right colliders
 			for (int i =0; i< noteMineColliders.Length;i++){
-				noteMineColliders [i].isTrigger = true;
+				Destroy (noteMineColliders[i]);
 			}
 
 			// Set the direction of the coin movement.

@@ -39,7 +39,7 @@ public class NoteMineController : MonoBehaviour {
 			//gameObject.transform.GetChild (0).GetComponent<Rigidbody2D> ().isKinematic = true;
 			// Disable the left and right colliders
 			for (int i =0; i< noteMineColliders.Length;i++){
-				noteMineColliders [i].isTrigger = true;
+				Destroy (noteMineColliders[i]);
 			}
 
 			// Set the direction of the coin movement.
@@ -51,6 +51,9 @@ public class NoteMineController : MonoBehaviour {
 
 			// Set the timeout for the coin, then destroy.
 			StartCoroutine (TimeoutForCoin ());
+
+			// Decrease the mine counter.
+			GameObject.Find ("Hazel").GetComponent<Player> ().DecMines ();
 		}
 	}
 
