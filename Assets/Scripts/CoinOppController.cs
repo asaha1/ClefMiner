@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Microsoft.Win32.SafeHandles;
 
 public class CoinOppController : MonoBehaviour {
 
 	/* Private Fields. */
 	private Rigidbody2D coinRb;
 	private int dir;
+	private SpriteRenderer coinSprite;
 
 	/* Private Serializables. */
 	[SerializeField]
@@ -25,6 +27,11 @@ public class CoinOppController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		coinRb = GetComponent<Rigidbody2D> ();
+		coinSprite = GetComponent<SpriteRenderer> ();
+		string[] enemies = FriendEnemyManager.instance.GetEnemyNames();
+		Random.seed = (int)(gameObject.transform.position.GetHashCode ());
+		Sprite tempSprite = Resources.Load<Sprite> (enemies[Random.Range (0, enemies.Length)]);
+		coinSprite.sprite = tempSprite;
 	}
 
 

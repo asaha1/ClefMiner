@@ -2,6 +2,8 @@
 using System.Collections;
 using System.IO;
 using UnityEngine.Networking.Match;
+using UnityEditor.VersionControl;
+using UnityEditor;
 
 public class CoinController : MonoBehaviour {
 
@@ -30,8 +32,8 @@ public class CoinController : MonoBehaviour {
 	void Start () {
 		coinRb = GetComponent<Rigidbody2D> ();
 		coinSprite = GetComponent<SpriteRenderer> ();
-
-
+		Sprite tempSprite = Resources.Load<Sprite> (FriendEnemyManager.instance.GetFriendName());
+		coinSprite.sprite = tempSprite;
 	}
 
 	public void SetDirection(int dirc){

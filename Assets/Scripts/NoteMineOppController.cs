@@ -51,6 +51,9 @@ public class NoteMineOppController : MonoBehaviour {
 
 			// Set the timeout for the coin, then destroy.
 			StartCoroutine (TimeoutForCoin ());
+
+			// Decrease the mine counter.
+			GameObject.Find ("Hazel").GetComponent<Player> ().DecMines ();
 		}
 	}
 
