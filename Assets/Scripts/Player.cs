@@ -72,7 +72,7 @@ public class Player : MonoBehaviour {
 	void Start () {
 		hitScore = 0;
 		falseHitScore = 0;
-		lifeScore = 3;
+		lifeScore = 5;
 		boxesScore = 20;
 		flip = true;
 		freezePlayer = false;
@@ -120,7 +120,7 @@ public class Player : MonoBehaviour {
 	void FixedUpdate () {
 		float horizontal = Input.GetAxis ("Horizontal");
 		isGround = IsGrounded ();
-		Debug.Log (horizontal);
+		//Debug.Log (horizontal);
 		HandleMoves(horizontal);
 		FlipPlayer (horizontal);
 		HandleAttacks ();
@@ -128,10 +128,14 @@ public class Player : MonoBehaviour {
 		UpdateScore ();
 		ResetScene ();
 	}
+		
 
 	private void HandleMoves(float horizontal){
-		if (freezePlayer)
+		if (freezePlayer) {
+			if(!playerAnimator.GetCurrentAnimatorStateInfo (0).IsName ("death"))
+				playerAnimator.SetTrigger ("death");
 			return;
+		}
 		if (myRigidBody.velocity.y < 0) {
 			playerAnimator.SetBool ("land", true);
 		}
@@ -151,8 +155,11 @@ public class Player : MonoBehaviour {
 	}
 
 	private void HandleAttacks(){
-		if (freezePlayer)
+		if (freezePlayer) {
+			if(!playerAnimator.GetCurrentAnimatorStateInfo (0).IsName ("death"))
+				playerAnimator.SetTrigger ("death");
 			return;
+		}
 		if (attack && !playerAnimator.GetNextAnimatorStateInfo (0).IsTag ("Attack")) {
 			playerAnimator.SetTrigger ("attack");
 			myRigidBody.velocity = Vector2.zero;
@@ -214,9 +221,12 @@ public class Player : MonoBehaviour {
 
 	public void MurderHazel(){
 		// TODO : play Dead sound
+		Debug.Log ("MurderHazel Called !");
 		SoundManager.instance.PlaySingle (deadSound);
-		playerAnimator.SetTrigger ("death");
 		freezePlayer = true;
+		playerAnimator.SetTrigger ("death");
+		//myRigidBody.isKinematic = true;
+
 		DecLife ();
 		// TODO : Show the info that press R to wake her up.
 	}
@@ -224,9 +234,9 @@ public class Player : MonoBehaviour {
 	public void ResurrectHazel(){
 		//playerAnimator.ResetTrigger ("death");
 		playerAnimator.SetTrigger ("resurrect");
+		//myRigidBody.isKinematic = false;
 		freezePlayer = false;
 	}
-
 
 
 	void AddRigidbody()
@@ -255,7 +265,7 @@ public class Player : MonoBehaviour {
 	}
 
 	private bool IsGrounded(){
-		if (true/*myRigidBody.velocity.y <= 0*/) {
+		if (myRigidBody.velocity.y <= 0) {
 			foreach (Transform point in groundPoints) {
 				Collider2D[] colliders = Physics2D.OverlapCircleAll (point.position, groundRadius, whatIsGround);
 				for (int i = 0; i < colliders.Length; i++) {

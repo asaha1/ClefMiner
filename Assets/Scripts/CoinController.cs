@@ -2,8 +2,8 @@
 using System.Collections;
 using System.IO;
 using UnityEngine.Networking.Match;
-using UnityEditor.VersionControl;
-using UnityEditor;
+//using UnityEditor.VersionControl;
+//using UnityEditor;
 
 public class CoinController : MonoBehaviour {
 
@@ -36,6 +36,7 @@ public class CoinController : MonoBehaviour {
 		//Sprite tempSprite = Resources.Load<Sprite> ("NotationsSprites/Clefs/" + "C_Clef");
 		//Debug.Log ("Friend Is = " + FriendEnemyManager.instance.GetFriendName());
 		coinSprite.sprite = tempSprite;
+		coinRb.constraints = RigidbodyConstraints2D.FreezeRotation;
 	}
 
 	public void SetDirection(int dirc){

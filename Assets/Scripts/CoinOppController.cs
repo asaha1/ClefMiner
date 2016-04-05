@@ -33,6 +33,7 @@ public class CoinOppController : MonoBehaviour {
 		Sprite tempSprite = Resources.Load<Sprite> (enemies[Random.Range (0, enemies.Length)]);
 		//Sprite tempSprite = Resources.Load<Sprite> ("NotationsSprites/Clefs/" + "F_Clef");
 		coinSprite.sprite = tempSprite;
+		coinRb.constraints = RigidbodyConstraints2D.FreezeRotation;
 	}
 
 

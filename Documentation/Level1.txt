@@ -24,7 +24,10 @@ The Story line of Level 1:
 18. Add some bonuses when uncovered, it uncovers everybody for all.
 19. Dynamic Ladders.
 20. Show popups everywhere for feedbacks. Like press R for resurrect, Game Completed, Game Over, Note Expiration, Level Expiration etc.
+
 21. Find the Bonus in the lower platforms, then the moving ladder appears and takes you to the upper part of the arena.
+22. Random instantiation of the Carets.
+23. To show the direction of the next hunt or the map.
 
 Feedbacks:
 

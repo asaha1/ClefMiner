@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class NoteMineController : MonoBehaviour {
 	/* Priate Fields. */
@@ -20,6 +21,7 @@ public class NoteMineController : MonoBehaviour {
 		caretRenderer = gameObject.transform.GetChild (1).GetComponent<Renderer> ();
 		coinRenderer = gameObject.transform.GetChild (0).GetComponent<Renderer> ();
 		noteMineColliders = GetComponents<BoxCollider2D> ();
+		//VanishMine (true);
 	}
 
 
@@ -28,6 +30,11 @@ public class NoteMineController : MonoBehaviour {
 			Instantiate (explodeAnimation, gameObject.transform.GetChild (0).transform.position, Quaternion.identity);
 			coinRenderer.enabled = false;
 		}
+	}
+
+	private void VanishMine(bool doesVanish){
+		coinRenderer.enabled = !doesVanish;
+		caretRenderer.enabled = !doesVanish;
 	}
 
 	public void UnlockMine(){
