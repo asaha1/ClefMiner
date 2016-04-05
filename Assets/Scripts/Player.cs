@@ -56,6 +56,10 @@ public class Player : MonoBehaviour {
 	private AudioClip footstep;
 
 	[SerializeField]
+	private AudioClip deadSound;
+
+
+	[SerializeField]
 	private GameObject explodeAnimation;
 
 	[SerializeField]
@@ -209,6 +213,8 @@ public class Player : MonoBehaviour {
 	}
 
 	public void MurderHazel(){
+		// TODO : play Dead sound
+		SoundManager.instance.PlaySingle (deadSound);
 		playerAnimator.SetTrigger ("death");
 		freezePlayer = true;
 		DecLife ();

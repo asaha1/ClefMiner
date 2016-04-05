@@ -1,1 +1,0 @@
-"Introduction of the FriendEnemyManager class which will keep track and take care of settinf the friends and enemies. The CoinControllers will dynamically load the resources accordingly from the resources folder. Currently implemented only for Level 1. Set the friends and enemies in the FriendEnemyManager class and all done with the level."

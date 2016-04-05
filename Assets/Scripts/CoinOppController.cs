@@ -31,6 +31,7 @@ public class CoinOppController : MonoBehaviour {
 		string[] enemies = FriendEnemyManager.instance.GetEnemyNames();
 		Random.seed = (int)(gameObject.transform.position.GetHashCode ());
 		Sprite tempSprite = Resources.Load<Sprite> (enemies[Random.Range (0, enemies.Length)]);
+		//Sprite tempSprite = Resources.Load<Sprite> ("NotationsSprites/Clefs/" + "F_Clef");
 		coinSprite.sprite = tempSprite;
 	}
 
@@ -63,7 +64,7 @@ public class CoinOppController : MonoBehaviour {
 			//Debug.Log ("Gravity Scale : " + coinRb.gravityScale);
 			if (coinRb.gravityScale > 0) {
 				//Instantiate (coinDestroyAnimation, transform.position, Quaternion.identity);
-				SoundManager.instance.PlaySingle (cointDestroy);
+				//SoundManager.instance.PlaySingle (cointDestroy);
 				Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
 				hz.IncFalseHitScore ();
 				hz.DecHitScore ();

@@ -33,6 +33,8 @@ public class CoinController : MonoBehaviour {
 		coinRb = GetComponent<Rigidbody2D> ();
 		coinSprite = GetComponent<SpriteRenderer> ();
 		Sprite tempSprite = Resources.Load<Sprite> (FriendEnemyManager.instance.GetFriendName());
+		//Sprite tempSprite = Resources.Load<Sprite> ("NotationsSprites/Clefs/" + "C_Clef");
+		//Debug.Log ("Friend Is = " + FriendEnemyManager.instance.GetFriendName());
 		coinSprite.sprite = tempSprite;
 	}
 

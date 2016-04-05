@@ -15,6 +15,11 @@ public class FriendEnemyManager : MonoBehaviour {
 
 	void Awake ()
 	{
+		friendName = "NotationsSprites/Clefs/" + "C_Clef";
+		enemyNames = new string[2];
+		enemyNames[0] = "NotationsSprites/Clefs/" + "F_Clef";
+		enemyNames[1] = "NotationsSprites/Clefs/" + "G_Clef";
+
 		//Check if there is already an instance of FriendEnemyManager
 		if (instance == null)
 			//if not, set it to this.
