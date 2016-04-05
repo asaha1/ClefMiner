@@ -60,9 +60,10 @@ public class NoteMineOppController : MonoBehaviour {
 	IEnumerator TimeoutForCoin(){
 		yield return new WaitForSeconds(5);
 		// Call the OnBeforeTimeout for its child Coin.
-		gameObject.transform.GetChild (0).GetComponent<CoinOppController> ().OnBeforeTimeout ();
-		//Destroy the coin
-		Destroy (gameObject.transform.GetChild (0).gameObject);
+		if (gameObject) {
+			gameObject.transform.GetChild (0).GetComponent<CoinOppController> ().OnBeforeTimeout ();
+			Destroy (gameObject.transform.GetChild (0).gameObject);
+		}
 		Destroy (gameObject);
 	}
 

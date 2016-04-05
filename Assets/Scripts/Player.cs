@@ -265,7 +265,8 @@ public class Player : MonoBehaviour {
 	}
 
 	private bool IsGrounded(){
-		if (myRigidBody.velocity.y <= 0) {
+		// TODO : Add the Vode to not jump twice.
+		if (true/*myRigidBody.velocity.y <= 0*/) {
 			foreach (Transform point in groundPoints) {
 				Collider2D[] colliders = Physics2D.OverlapCircleAll (point.position, groundRadius, whatIsGround);
 				for (int i = 0; i < colliders.Length; i++) {

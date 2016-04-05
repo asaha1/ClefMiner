@@ -35,6 +35,7 @@ Feedbacks:
 2. If the player wants, then put spot lights on the notes that needs to be found.
 3. if not able to find more boxes, then after 1 minutes give hints on where the next boxes are located.
 4. Depending on the final scores, gives feedback on what were the most mistaken notes and show the notes again once.
+5. Among the mistakes they are making, note the highest mistake and show a tutorial of cllarifying the two things.
 
 
 Assets:
