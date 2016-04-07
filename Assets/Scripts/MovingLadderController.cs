@@ -17,7 +17,12 @@ public class MovingLadderController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ladderBody = GetComponent<Rigidbody2D> ();
-		ladderDirection = 1;
+		ladderDirection = -1;
+	}
+
+
+	public void SetLadderSpeed(float speed){
+		ladderSpeed = speed;
 	}
 	
 	// Update is called once per frame

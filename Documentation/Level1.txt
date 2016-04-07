@@ -29,6 +29,7 @@ The Story line of Level 1:
 22. Random instantiation of the Carets.
 23. To show the direction of the next hunt or the map.
 
+
 Feedbacks:
 
 1. Consecutive 3 wrong note selection will pop up a guide to clarify the specific Notes on which he makes mistakes.

@@ -58,6 +58,8 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private AudioClip deadSound;
 
+	[SerializeField]
+	private AudioClip jumpSound;
 
 	[SerializeField]
 	private GameObject explodeAnimation;
@@ -151,6 +153,7 @@ public class Player : MonoBehaviour {
 			isGround = false;
 			myRigidBody.AddForce (new Vector2(0, jumpForce));
 			playerAnimator.SetTrigger ("jump");
+			SoundManager.instance.PlaySingle (jumpSound);
 		}
 	}
 
