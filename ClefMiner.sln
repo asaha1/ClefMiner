@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{28583D5B-6734-49FC-8D70-3B04A3391117}") = "ClefMiner", "Assembly-CSharp-firstpass.csproj", "{2B2E88E4-706A-600E-4C08-0EA1540BD64A}"
+EndProject
+Project("{28583D5B-6734-49FC-8D70-3B04A3391117}") = "ClefMiner", "Assembly-CSharp.csproj", "{EF7A8228-78D2-97DB-28C2-4E593AD7C6C4}"
+EndProject
+Project("{28583D5B-6734-49FC-8D70-3B04A3391117}") = "ClefMiner", "Assembly-CSharp-Editor.csproj", "{EAC4DC1C-955B-FFE6-6F45-0BE1510AFDD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B2E88E4-706A-600E-4C08-0EA1540BD64A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B2E88E4-706A-600E-4C08-0EA1540BD64A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B2E88E4-706A-600E-4C08-0EA1540BD64A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B2E88E4-706A-600E-4C08-0EA1540BD64A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF7A8228-78D2-97DB-28C2-4E593AD7C6C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF7A8228-78D2-97DB-28C2-4E593AD7C6C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF7A8228-78D2-97DB-28C2-4E593AD7C6C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF7A8228-78D2-97DB-28C2-4E593AD7C6C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC4DC1C-955B-FFE6-6F45-0BE1510AFDD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC4DC1C-955B-FFE6-6F45-0BE1510AFDD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC4DC1C-955B-FFE6-6F45-0BE1510AFDD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC4DC1C-955B-FFE6-6F45-0BE1510AFDD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
