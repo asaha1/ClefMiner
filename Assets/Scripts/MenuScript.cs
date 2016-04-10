@@ -10,10 +10,11 @@ public class MenuScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		quitMenu = quitMenu.GetComponent<Canvas> ();
-		startButton = startButton.GetComponent<Button> ();
-		exitButton = exitButton.GetComponent<Button> ();
-		quitMenu.enabled = false;
+		//quitMenu = quitMenu.GetComponent<Canvas> ();
+		//startButton = startButton.GetComponent<Button> ();
+		//exitButton = exitButton.GetComponent<Button> ();
+		if (quitMenu != null)
+			quitMenu.enabled = false;
 	}
 
 	public void ExitPress() {
