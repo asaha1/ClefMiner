@@ -13,6 +13,7 @@ public class MenuScript : MonoBehaviour {
 		//quitMenu = quitMenu.GetComponent<Canvas> ();
 		//startButton = startButton.GetComponent<Button> ();
 		//exitButton = exitButton.GetComponent<Button> ();
+		Time.timeScale = 0f;
 		if (quitMenu != null)
 			quitMenu.enabled = false;
 	}
