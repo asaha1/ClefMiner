@@ -11,10 +11,8 @@ public class MenuScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//quitMenu = quitMenu.GetComponent<Canvas> ();
-		//startButton = startButton.GetComponent<Button> ();
-		//exitButton = exitButton.GetComponent<Button> ();
-		instructionCanvas.enabled = false;	
+		if (instructionCanvas != null)
+			instructionCanvas.enabled = false;	
 		Time.timeScale = 0f;
 		if (quitMenu != null)
 			quitMenu.enabled = false;
