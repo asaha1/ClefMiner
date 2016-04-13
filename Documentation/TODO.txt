@@ -1,0 +1,15 @@
+1. Change the menu background.
+2. Level the ground.
+3. Dwonload Notes and audio.(OP)
+4. Implement Level.(OP)
+5. Use pre and post survey.
+6. Initial tutorial hints.
+7. Collect the play data, corects and wrongs.(Use play Log)
+8. Game End and Game won.
+9. To show the direction of the next if needed.
+10. Don't kill Hazel when she falls.
+
+
+11. Show every note once as a friend to make them leanr properly.
+12. Tell them about the mistakes and achievements on every kill.
+13. Blocking popup and non blocking popup.

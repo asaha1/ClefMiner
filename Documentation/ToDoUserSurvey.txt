@@ -1,0 +1,15 @@
+Pre Survey:
+- Do you know musical notations?
+If No start the game.
+If yes, the ask the following qeustions.
+1. What is a clef?
+2. How many Clefs are normallly used?
+3. Do you know the name of the following Clefs? (Show the pics and give MCQ)
+
+Play the game
+(Collect the user log.)
+
+Post Survey
+1. What is a clef?
+2. How many Clefs are normallly used?
+3. Do you know the name of the following Clefs? (Show the pics and give MCQ)
