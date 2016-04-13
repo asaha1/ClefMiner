@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Collider.cs" />
      <Compile Include="Assets\Scripts\FriendEnemyManager.cs" />
      <Compile Include="Assets\Scripts\HellWall.cs" />
+     <Compile Include="Assets\Scripts\HintScript.cs" />
      <Compile Include="Assets\Scripts\LeftRightWallController.cs" />
      <Compile Include="Assets\Scripts\MenuScript.cs" />
      <Compile Include="Assets\Scripts\MovingLadderController.cs" />

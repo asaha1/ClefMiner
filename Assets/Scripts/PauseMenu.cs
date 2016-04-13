@@ -6,10 +6,12 @@ public class PauseMenu : MonoBehaviour {
 	public bool isQuitMenuActive;
 	public GameObject pausedMenuCanvas;
 	public GameObject quitMenuCanvas;
+	public bool isHint;
 
 	// Use this for initialization
 	void Start () {
-		//isPaused = false;
+		isPaused = false;
+		isHint = false;
 	}
 	
 	// Update is called once per frame
@@ -18,8 +20,10 @@ public class PauseMenu : MonoBehaviour {
 			Debug.Log ("Escape");
 			isPaused = !isPaused;
 		}
-
-		if (isPaused) {
+		if (isHint) {
+			Time.timeScale = 0f;
+		}
+		else if (isPaused) {
 			Time.timeScale = 0f;
 			pausedMenuCanvas.SetActive (true);
 		} else {

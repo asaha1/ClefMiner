@@ -62,8 +62,20 @@ public class NoteMineController : MonoBehaviour {
 			// Decrease the mine counter.
 			GameObject.Find ("Hazel").GetComponent<Player> ().DecMines ();
 		}
+
+		//if the first block is hit display hint after 1 sec
+		//if (gameObject.transform.name.Equals("NoteMineTutorial")) {
+		//	StartCoroutine (Wait (0.5f));
+
+		//}
 	}
 
+	IEnumerator Wait(float duration) {
+		yield return new WaitForSeconds(duration);   //Wait
+		GameObject collider = GameObject.Find ("TutorialCollider");
+		collider.SetActive (true);
+		collider.GetComponent<HintScript> ().showHint ();
+	}
 
 	IEnumerator TimeoutForCoin(){
 		yield return new WaitForSeconds (5);
