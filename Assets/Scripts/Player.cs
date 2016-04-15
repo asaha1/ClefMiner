@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
 	void Start () {
 		hitScore = 0;
 		falseHitScore = 0;
-		lifeScore = 5;
+		lifeScore = 3;
 		boxesScore = 20;
 		flip = true;
 		freezePlayer = false;
@@ -318,7 +318,8 @@ public class Player : MonoBehaviour {
 	private void GameOver(){
 		// Alas! Game is over !. Hazel dead thrice.
 		GameObject.Find ("Hazel").GetComponent<PauseMenu> ().isGameOver = true;
-		GameOverCanvas.enabled = true;
+		if(GameOverCanvas)
+			GameOverCanvas.enabled = true;
 
 	}
 
