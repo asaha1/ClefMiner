@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
+	public Canvas GameOverCanvas;
 
 	/* Private Fields. */
 	private Rigidbody2D myRigidBody;
@@ -80,6 +81,7 @@ public class Player : MonoBehaviour {
 		freezePlayer = false;
 		myRigidBody = GetComponent<Rigidbody2D> ();
 		playerAnimator = GetComponent<Animator> ();
+		GameOverCanvas.enabled = false;
 
 	}
 
@@ -314,7 +316,9 @@ public class Player : MonoBehaviour {
 
 	private void GameOver(){
 		// Alas! Game is over !. Hazel dead thrice.
-		SceneManager.LoadScene ("Level2_G");
+		GameObject.Find ("Hazel").GetComponent<PauseMenu> ().isGameOver = true;
+		GameOverCanvas.enabled = true;
+
 	}
 
 	private void UpdateScore(){
@@ -322,7 +326,7 @@ public class Player : MonoBehaviour {
 		Text falseHitText = scoreText.transform.GetChild (0).GetComponent<Text> ();
 		falseHitText.text = "False Hit Score : " + falseHitScore;
 		Text lifeLeftText = scoreText.transform.GetChild (1).GetComponent<Text> ();
-		lifeLeftText.text = "Lives Remaining : " + lifeScore;
+		lifeLeftText.text = "X " + lifeScore;
 		Text boxesLeftText = scoreText.transform.GetChild (2).GetComponent<Text> ();
 		boxesLeftText.text = "Mines Remaining : " + boxesScore;
 		Text hitText = scoreText.transform.GetChild (3).GetComponent<Text> ();

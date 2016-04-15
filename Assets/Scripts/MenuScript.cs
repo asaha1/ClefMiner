@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
 	
@@ -31,7 +32,7 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	public void startLevel(){
-		Application.LoadLevel (1);
+		SceneManager.LoadScene (1);
 	}
 
 	public void ExitGame() {

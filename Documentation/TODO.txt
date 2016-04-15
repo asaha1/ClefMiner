@@ -1,6 +1,6 @@
 1. Change the menu background.
 2. Level the ground.
-3. Dwonload Notes and audio.(OP)
+3. Download Notes and audio.(OP)
 4. Implement Level.(OP)
 5. Use pre and post survey.
 6. Initial tutorial hints.

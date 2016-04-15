@@ -63,17 +63,14 @@ public class NoteMineController : MonoBehaviour {
 			GameObject.Find ("Hazel").GetComponent<Player> ().DecMines ();
 		}
 
-		//if the first block is hit display hint after 1 sec
-		//if (gameObject.transform.name.Equals("NoteMineTutorial")) {
-		//	StartCoroutine (Wait (0.5f));
 
-		//}
 	}
 
 	IEnumerator Wait(float duration) {
 		yield return new WaitForSeconds(duration);   //Wait
 		GameObject collider = GameObject.Find ("TutorialCollider");
 		collider.SetActive (true);
+		collider.GetComponent<HintScript> ().setHint ("This is a C-clef\nThis will run away from you\nRun and collect it before it falls", "NotationsSprites/Clefs/C_Clef");
 		collider.GetComponent<HintScript> ().showHint ();
 	}
 
@@ -89,10 +86,16 @@ public class NoteMineController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D item){
-		Debug.Log ("Trigger Enter!");
+		Debug.Log ("Bullet");
 		if (item.gameObject.name == "Bullet(Clone)") {
 			UnlockMine ();
 			Destroy(item.gameObject);
+
+			//if the first block is hit display hint after 1 sec
+			if (gameObject.transform.name.Equals("NoteMineTutorial")) {
+				StartCoroutine (Wait (0.5f));
+
+			}
 		}
 	}
 		

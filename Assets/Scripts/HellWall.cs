@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class HellWall : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D item){
+		//fix this just don't load the scene keep the current state
 		if (item.gameObject.name == "Hazel") {
 			SceneManager.LoadScene (1);
 		}

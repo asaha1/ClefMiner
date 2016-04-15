@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 	public bool isPaused;
@@ -7,11 +8,13 @@ public class PauseMenu : MonoBehaviour {
 	public GameObject pausedMenuCanvas;
 	public GameObject quitMenuCanvas;
 	public bool isHint;
+	public bool isGameOver;
 
 	// Use this for initialization
 	void Start () {
 		isPaused = false;
 		isHint = false;
+		isGameOver = false;
 	}
 	
 	// Update is called once per frame
@@ -20,7 +23,7 @@ public class PauseMenu : MonoBehaviour {
 			Debug.Log ("Escape");
 			isPaused = !isPaused;
 		}
-		if (isHint) {
+		if (isHint || isGameOver) {
 			Time.timeScale = 0f;
 		}
 		else if (isPaused) {
@@ -44,7 +47,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void Restart() {
-		Application.LoadLevel (1);
+		SceneManager.LoadScene (1);
 	}
 
 	public void YesPress() {
