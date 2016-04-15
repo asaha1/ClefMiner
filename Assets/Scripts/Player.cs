@@ -81,7 +81,8 @@ public class Player : MonoBehaviour {
 		freezePlayer = false;
 		myRigidBody = GetComponent<Rigidbody2D> ();
 		playerAnimator = GetComponent<Animator> ();
-		GameOverCanvas.enabled = false;
+		if(GameOverCanvas)
+			GameOverCanvas.enabled = false;
 
 	}
 
