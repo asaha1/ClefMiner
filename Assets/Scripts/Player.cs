@@ -29,6 +29,7 @@ public class Player : MonoBehaviour {
 	private bool shoot;
 	private bool slide;
 	private bool freezePlayer;
+	private bool mapOn;
 
 
 	/* Private Serialized. */
@@ -71,6 +72,9 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private float jumpForce;
 
+	[SerializeField]
+	private Canvas mapCanvas;
+
 
 
 
@@ -85,8 +89,11 @@ public class Player : MonoBehaviour {
 		flip = true;
 		lastBoxOpened = false;
 		freezePlayer = false;
+		mapOn = false;
+		GameObject.Find ("ShowScene").GetComponent<Button> ().enabled = false;
 		myRigidBody = GetComponent<Rigidbody2D> ();
 		playerAnimator = GetComponent<Animator> ();
+		mapCanvas.enabled = false;
 		if(GameOverCanvas)
 			GameOverCanvas.enabled = false;
 
@@ -124,6 +131,17 @@ public class Player : MonoBehaviour {
 
 	void Update(){
 		HandleInput ();
+	}
+
+
+	public void ShowMap(){
+		GetComponent<PauseMenu> ().isHint = true;
+		mapCanvas.enabled = true;
+	}
+
+	public void HideMap(){
+		GetComponent<PauseMenu> ().isHint = false;
+		mapCanvas.enabled = false;
 	}
 
 	// Update is called once per frame
@@ -335,6 +353,12 @@ public class Player : MonoBehaviour {
 			GameCompleted ();
 		if (lifeScore <= 0)
 			GameOver ();
+		//Show the map button only when uncovred 10 boxes.
+		if (boxesScore <= 10) {
+			GameObject.Find ("ShowScene").GetComponent<Button> ().enabled = true;
+			//TODO : Give a popup saying You can see map now
+		}
+		
 			
 	}
 
