@@ -57,7 +57,7 @@ public class PauseMenu : MonoBehaviour {
 	public void NoPress() {
 		isQuitMenuActive = false;
 		quitMenuCanvas.SetActive (false);
-		pausedMenuCanvas.SetActive (true);
+		//pausedMenuCanvas.SetActive (true);
 	}
 
 	public void StartMainMenu(){

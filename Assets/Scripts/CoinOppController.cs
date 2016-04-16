@@ -144,6 +144,9 @@ public class CoinOppController : MonoBehaviour {
 		SoundManager.instance.PlaySingle (coinTimeoutSound);
 		Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
 		hz.DecHitScore ();
+		if (hz.IsLastBoxOpened ()) {
+			hz.ShootGameWon (0.5f);
+		}
 	}
 
 	void OnDestroy(){

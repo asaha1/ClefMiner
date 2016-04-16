@@ -8,8 +8,11 @@ public class HellWall : MonoBehaviour {
 		string colliderObject = item.gameObject.name;
 		switch (colliderObject) {
 		case "Hazel":
-			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+			//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 			// What else to do?
+			Player hz = item.gameObject.GetComponent<Player> (); 
+			hz.DecLife ();
+			hz.RepositionHazel (Vector3.zero);
 			break;
 		case "Coin":
 			if ((SceneManager.GetActiveScene ().name == "Level1Tutorial_1") || ((SceneManager.GetActiveScene ().name == "Level1Tutorial_2"))) {

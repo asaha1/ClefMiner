@@ -80,7 +80,7 @@ public class Player : MonoBehaviour {
 		Debug.Log(SceneManager.GetActiveScene().name);
 		hitScore = 0;
 		falseHitScore = 0;
-		lifeScore = 3;
+		lifeScore = 1;
 		boxesScore = 20;
 		flip = true;
 		lastBoxOpened = false;
@@ -140,6 +140,9 @@ public class Player : MonoBehaviour {
 		ResetScene ();
 	}
 		
+	public void RepositionHazel(Vector3 cameraPos){
+		gameObject.transform.position = cameraPos;
+	}
 
 	private void HandleMoves(float horizontal){
 		if (freezePlayer) {
@@ -328,19 +331,21 @@ public class Player : MonoBehaviour {
 		Destroy (GameObject.Find("ExplosionMobile(Clone)"), 2);
 		Destroy (GameObject.Find("Explosion(Clone)"), 2);
 		// Check if Game Over or Completed!
-		if (boxesScore == 0)
+		if (boxesScore <= 0)
 			GameCompleted ();
-		if (lifeScore == 0)
+		if (lifeScore <= 0)
 			GameOver ();
 			
 	}
 
 	private void GameCompleted(){
 		// Hurray Game Completed.
+		lastBoxOpened = true;
 	}
 
 	private void GameOver(){
 		// Alas! Game is over !. Hazel dead thrice.
+		PaintGameOverMenu ();
 		GameObject.Find ("Hazel").GetComponent<PauseMenu> ().isGameOver = true;
 		if(GameOverCanvas)
 			GameOverCanvas.enabled = true;
@@ -349,6 +354,7 @@ public class Player : MonoBehaviour {
 
 	IEnumerator ShowGameWonAfterWait(float duration){
 		yield return new WaitForSeconds(duration);
+		PaintGameOverMenu ();
 		GameObject.Find("Hazel").GetComponent<PauseMenu>().isHint = true;
 		GameOverCanvas.GetComponentInChildren<Text>().text = "Bravo ! All Mines Uncovered !";
 		GameOverCanvas.enabled = true;
@@ -363,6 +369,49 @@ public class Player : MonoBehaviour {
 	}
 
 
+	public void PaintGameOverMenu(){
+		GameObject gameOverCanvas = GameObject.FindWithTag ("khatamScreen");
+		Text trueScore = gameOverCanvas.transform.GetChild (4).GetComponent<Text> ();
+		trueScore.text = "True Hits :: " + hitScore;
+
+		Text falseScore = gameOverCanvas.transform.GetChild (5).GetComponent<Text> ();
+		falseScore.text = "False Hits :: " + falseHitScore;
+
+
+		Text feebbackBox = gameOverCanvas.transform.GetChild (6).GetComponent<Text> ();
+
+
+
+		//Decide the message! need to change later.
+		string feedbackText = "Try to focus ! Practice Makes a man perfect.";
+		int delta = hitScore - falseHitScore;
+		if (delta < 0) {
+			// return
+			feebbackBox.text = feedbackText;
+			return;
+		}
+		
+		if (delta >= 0 && delta < 100) {
+			//Okay message
+			feedbackText = "You are going pretty good! Try harder.";
+			feebbackBox.text = feedbackText;
+		} else if (delta >= 100 && delta < 500) {
+			// Super message
+			feedbackText = "You are awesome! Success will follow you soon.";
+			feebbackBox.text = feedbackText;
+
+		} else if (delta >= 500 && delta < 1000) {
+			//Excellent!
+			feedbackText = "You are Excellent! Sharp eyes you have!";
+			feebbackBox.text = feedbackText;
+		} else {
+			//genious
+			feedbackText = "Genious in Action! Hatz off to you Sir!";
+			feebbackBox.text = feedbackText;
+		}
+
+	}
+
 	private void UpdateScore(){
 		//Debug.Log ("Update Score Called!");
 		Text falseHitText = scoreText.transform.GetChild (0).GetComponent<Text> ();
@@ -373,9 +422,5 @@ public class Player : MonoBehaviour {
 		boxesLeftText.text = "Mines Remaining : " + boxesScore;
 		Text hitText = scoreText.transform.GetChild (3).GetComponent<Text> ();
 		hitText.text = "True Hits Score : " + hitScore;
-		if (boxesScore <= 0) {	
-			lastBoxOpened = true;
-		}
 	}
-
 }
