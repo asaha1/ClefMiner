@@ -126,9 +126,9 @@ public class CoinOppController : MonoBehaviour {
 				// TODO Hint popup saying that you did mistake.
 				GameObject collider = GameObject.Find ("TutorialCollider");
 				collider.SetActive (true);
-				collider.GetComponent<HintScript> ().reloadNextLevelNeeded = true;
+				collider.GetComponent<HintScript> ().reloadMain = true;
 				string currSpriteName = coinSprite.name;
-				collider.GetComponent<HintScript> ().setHint ("Wow ! You killed the enemy Clef.\nClick Okay/Press Enter to go next. ", "NotationsSprites/Others/cool_smiley");
+				collider.GetComponent<HintScript> ().setHint ("Wow ! You killed the enemy Clef.\nClick Okay/Press to review the Clefs!", "NotationsSprites/Others/cool_smiley");
 				collider.GetComponent<HintScript> ().showHint ();
 			}
 			break;
