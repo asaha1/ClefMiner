@@ -80,7 +80,7 @@ public class Player : MonoBehaviour {
 		Debug.Log(SceneManager.GetActiveScene().name);
 		hitScore = 0;
 		falseHitScore = 0;
-		lifeScore = 1;
+		lifeScore = 3;
 		boxesScore = 20;
 		flip = true;
 		lastBoxOpened = false;

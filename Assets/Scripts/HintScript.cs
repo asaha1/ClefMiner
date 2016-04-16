@@ -80,6 +80,7 @@ public class HintScript : MonoBehaviour {
 			enemyNames [5] = "G Clef\nEnemy!";
 			SetUpReview ("Following are the Clefs that you are going to find in the main arena. \nFind as much of them " +
 				"as you can.\nPress OKAY to start!", "NotationsSprites/Clefs/C_Clef", "C Clef\nYour Friend!", enemySprites, enemyNames, "NONE");
+			GameObject.Find("Hazel").GetComponent<PauseMenu>().isHint = true;
 			ShowReview ();
 			reloadMain = false;
 		}
