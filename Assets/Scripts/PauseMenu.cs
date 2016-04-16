@@ -59,5 +59,9 @@ public class PauseMenu : MonoBehaviour {
 		quitMenuCanvas.SetActive (false);
 		pausedMenuCanvas.SetActive (true);
 	}
+
+	public void StartMainMenu(){
+		SceneManager.LoadScene (0);
+	}
 }
 
