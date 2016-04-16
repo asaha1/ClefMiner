@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HintScript : MonoBehaviour {
 	public Canvas hintCanvas;
 
+	public bool reloadLevelNeeded;
+	public bool reloadNextLevelNeeded;
+
 	// Use this for initialization
 	void Start () {
 		hintCanvas.enabled = false;
+		reloadLevelNeeded = false;
+		reloadNextLevelNeeded = false;
 	}
 	
 	// Update is called once per frame
@@ -30,6 +36,15 @@ public class HintScript : MonoBehaviour {
 		hintCanvas.enabled = false;
 		GameObject.Find("Hazel").GetComponent<PauseMenu>().isHint = false;
 		gameObject.GetComponent<BoxCollider2D> ().enabled = false;
+		//
+		if (reloadLevelNeeded) {
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+			reloadLevelNeeded = false;
+		}
+		if (reloadNextLevelNeeded) {
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+			reloadNextLevelNeeded = false;
+		}
 		//gameObject.SetActive (false);
 	}
 

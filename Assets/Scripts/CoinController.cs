@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 using UnityEngine.Networking.Match;
+using UnityEngine.SceneManagement;
 //using UnityEditor.VersionControl;
 //using UnityEditor;
 
@@ -70,9 +71,21 @@ public class CoinController : MonoBehaviour {
 				SoundManager.instance.PlaySingle (coinDestroy);
 				Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
 				hz.IncHitScore ();
+				if (hz.IsLastBoxOpened ()) {
+					hz.ShootGameWon (0.5f);
+				}
 				Destroy (gameObject);
 				// Need to destroy it's parent.
 				Destroy (transform.parent.gameObject);
+				// For tutorial , show bravo
+				if (SceneManager.GetActiveScene ().name == "Level1Tutorial_1") {
+					// TODO Hint popup saying that you did mistake.
+					GameObject collider = GameObject.Find ("TutorialCollider");
+					collider.SetActive (true);
+					collider.GetComponent<HintScript> ().reloadNextLevelNeeded= true;
+					collider.GetComponent<HintScript> ().setHint ("Bravo ! You have identified the correct clef.\nClick Okay/Presss Enter to go next.", "NotationsSprites/Clefs/C_Clef");
+					collider.GetComponent<HintScript> ().showHint ();
+				}
 			}
 			break;
 		
@@ -84,9 +97,21 @@ public class CoinController : MonoBehaviour {
 				Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
 				hz.DecHitScore ();
 				hz.IncFalseHitScore ();
+				if (hz.IsLastBoxOpened ()) {
+					hz.ShootGameWon (1f);
+				}
 				Destroy (gameObject);
 				// Need to destroy it's parent.
 				Destroy (transform.parent.gameObject);
+				// For turorial.
+				if (SceneManager.GetActiveScene ().name == "Level1Tutorial_1") {
+					// TODO Hint popup saying that you did mistake.
+					GameObject collider = GameObject.Find ("TutorialCollider");
+					collider.SetActive (true);
+					collider.GetComponent<HintScript> ().reloadLevelNeeded = true;
+					collider.GetComponent<HintScript> ().setHint ("Ooops! You have killed a friend Clef!\nPlease try again. Click Okay/Press Enter.", "NotationsSprites/Clefs/C_Clef");
+					collider.GetComponent<HintScript> ().showHint ();
+				}
 			}
 			break;
 		default:

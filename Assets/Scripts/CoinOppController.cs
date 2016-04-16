@@ -23,6 +23,8 @@ public class CoinOppController : MonoBehaviour {
 	[SerializeField]
 	private AudioClip coinTimeoutSound;
 
+	public bool isCoinNaked;
+
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +36,7 @@ public class CoinOppController : MonoBehaviour {
 		//Sprite tempSprite = Resources.Load<Sprite> ("NotationsSprites/Clefs/" + "F_Clef");
 		coinSprite.sprite = tempSprite;
 		coinRb.constraints = RigidbodyConstraints2D.FreezeRotation;
+		isCoinNaked = false;
 	}
 
 
@@ -57,6 +60,18 @@ public class CoinOppController : MonoBehaviour {
 		}	
 	}*/
 
+	IEnumerator ShowTutorialBravo(float duration){
+		yield return new WaitForSeconds(duration);   //Wait
+		if ((SceneManager.GetActiveScene ().name == "Level1Tutorial_1") || ((SceneManager.GetActiveScene ().name == "Level1Tutorial_2"))) {
+			// TODO Hint popup saying that you did mistake.
+			GameObject collider = GameObject.Find ("TutorialCollider");
+			collider.SetActive (true);
+			collider.GetComponent<HintScript> ().reloadNextLevelNeeded = true;
+			string currSpriteName = coinSprite.name;
+			collider.GetComponent<HintScript> ().setHint ("Wow ! You killed the enemy Clef.\nClick Okay/Press Enter to go next. ", "NotationsSprites/Others/cool_smiley");
+			collider.GetComponent<HintScript> ().showHint ();
+		}
+	}
 	void OnCollisionEnter2D(Collision2D item) {
 		string colliderObject = item.gameObject.name;
 		switch (colliderObject) {
@@ -70,10 +85,22 @@ public class CoinOppController : MonoBehaviour {
 				hz.IncFalseHitScore ();
 				hz.DecHitScore ();
 				hz.MurderHazel ();
+				if (hz.IsLastBoxOpened ()) {
+					hz.ShootGameWon (0.5f);
+				}
 				Destroy(gameObject);
 				// Need to destroy it's parent.
 				Destroy (transform.parent.gameObject);
 				//Destroy Hazel?
+			}
+
+			if ((SceneManager.GetActiveScene ().name == "Level1Tutorial_1") || ((SceneManager.GetActiveScene ().name == "Level1Tutorial_2"))) {
+				// TODO Hint popup saying that you did mistake.
+				GameObject collider = GameObject.Find ("TutorialCollider");
+				collider.SetActive (true);
+				collider.GetComponent<HintScript> ().reloadLevelNeeded = true;
+				collider.GetComponent<HintScript> ().setHint ("Oops! The wrong Clef has touched you. Shoot before it does.\nClick Okay/Press Enter to try again. ", "NotationsSprites/Others/sad_smiley");
+				collider.GetComponent<HintScript> ().showHint ();
 			}
 			break;
 
@@ -88,6 +115,21 @@ public class CoinOppController : MonoBehaviour {
 				// +100 hitScore
 				Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
 				hz.IncHitScore ();
+				if (hz.IsLastBoxOpened ()) {
+					hz.ShootGameWon (0.5f);
+				}
+			}
+
+			//Bravo Tutorial.
+			//StartCoroutine (ShowTutorialBravo (0.5f));
+			if (isCoinNaked && ((SceneManager.GetActiveScene ().name == "Level1Tutorial_1") || ((SceneManager.GetActiveScene ().name == "Level1Tutorial_2")))) {
+				// TODO Hint popup saying that you did mistake.
+				GameObject collider = GameObject.Find ("TutorialCollider");
+				collider.SetActive (true);
+				collider.GetComponent<HintScript> ().reloadNextLevelNeeded = true;
+				string currSpriteName = coinSprite.name;
+				collider.GetComponent<HintScript> ().setHint ("Wow ! You killed the enemy Clef.\nClick Okay/Press Enter to go next. ", "NotationsSprites/Others/cool_smiley");
+				collider.GetComponent<HintScript> ().showHint ();
 			}
 			break;
 		default:

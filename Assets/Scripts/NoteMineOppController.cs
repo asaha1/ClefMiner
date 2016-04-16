@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class NoteMineOppController : MonoBehaviour {
 	/* Private Fields. */
@@ -36,9 +37,10 @@ public class NoteMineOppController : MonoBehaviour {
 			SoundManager.instance.PlaySingle (caretBlast);
 			caretRenderer.enabled = false;
 			gameObject.transform.GetChild (0).GetComponent<Rigidbody2D> ().gravityScale = 10;
+			gameObject.transform.GetChild (0).GetComponent<CoinOppController> ().isCoinNaked = true;
 			//gameObject.transform.GetChild (0).GetComponent<Rigidbody2D> ().isKinematic = true;
 			// Disable the left and right colliders
-			for (int i =0; i< noteMineColliders.Length;i++){
+			for (int i = 0; i< noteMineColliders.Length;i++){
 				Destroy (noteMineColliders[i]);
 			}
 
@@ -55,7 +57,22 @@ public class NoteMineOppController : MonoBehaviour {
 			// Decrease the mine counter.
 			GameObject.Find ("Hazel").GetComponent<Player> ().DecMines ();
 		}
+		//if the first block is hit display hint after 1 sec
+		if (gameObject.transform.name.Equals("NoteMineOppTutorial") && (SceneManager.GetActiveScene ().name != "Level1")) {
+			StartCoroutine (Wait (0.5f));
+		}
 	}
+
+
+	IEnumerator Wait(float duration) {
+		yield return new WaitForSeconds(duration);   //Wait
+		GameObject collider = GameObject.Find ("TutorialCollider");
+		collider.SetActive (true);
+		string enemyName = gameObject.transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite.name;
+		collider.GetComponent<HintScript> ().setHint ("This is a " + enemyName  + ". This an opponent for you.\nThis will come towards you\nShoot it before it touches!", "NotationsSprites/Clefs/"+enemyName);
+		collider.GetComponent<HintScript> ().showHint ();
+	}
+
 
 	IEnumerator TimeoutForCoin(){
 		yield return new WaitForSeconds(5);

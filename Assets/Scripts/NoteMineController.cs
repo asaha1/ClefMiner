@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
 public class NoteMineController : MonoBehaviour {
 	/* Priate Fields. */
@@ -62,8 +63,11 @@ public class NoteMineController : MonoBehaviour {
 			// Decrease the mine counter.
 			GameObject.Find ("Hazel").GetComponent<Player> ().DecMines ();
 		}
+		//if the first block is hit display hint after 1 sec
+		if (gameObject.transform.name.Equals("NoteMineTutorial") && (SceneManager.GetActiveScene ().name != "Level1")) {
+			StartCoroutine (Wait (0.5f));
 
-
+		}
 	}
 
 	IEnumerator Wait(float duration) {
@@ -75,7 +79,7 @@ public class NoteMineController : MonoBehaviour {
 	}
 
 	IEnumerator TimeoutForCoin(){
-		yield return new WaitForSeconds (5);
+		yield return new WaitForSeconds (10);
 		// Call the OnBeforeTimeout for its child Coin.
 		//Destroy the coin
 		if (gameObject) {
@@ -90,12 +94,6 @@ public class NoteMineController : MonoBehaviour {
 		if (item.gameObject.name == "Bullet(Clone)") {
 			UnlockMine ();
 			Destroy(item.gameObject);
-
-			//if the first block is hit display hint after 1 sec
-			if (gameObject.transform.name.Equals("NoteMineTutorial")) {
-				StartCoroutine (Wait (0.5f));
-
-			}
 		}
 	}
 		

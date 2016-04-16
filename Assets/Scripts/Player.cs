@@ -13,6 +13,9 @@ public class Player : MonoBehaviour {
 	private Rigidbody2D myRigidBody;
 	private GameObject bPrefab; 
 	private Animator playerAnimator;
+
+
+	private bool lastBoxOpened;
 	// Scores
 	private int hitScore;
 	private int falseHitScore;
@@ -73,11 +76,14 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//print(Application.loadedLevel);
+		Debug.Log(SceneManager.GetActiveScene().name);
 		hitScore = 0;
 		falseHitScore = 0;
 		lifeScore = 3;
 		boxesScore = 20;
 		flip = true;
+		lastBoxOpened = false;
 		freezePlayer = false;
 		myRigidBody = GetComponent<Rigidbody2D> ();
 		playerAnimator = GetComponent<Animator> ();
@@ -199,6 +205,15 @@ public class Player : MonoBehaviour {
 	}
 
 	private void HandleInput(){
+		if ((SceneManager.GetActiveScene ().name == "Level1Tutorial_1") || (SceneManager.GetActiveScene ().name == "Level1Tutorial_2")){
+			GameObject currHint = GameObject.Find ("HintCanvas");
+			bool isHint = currHint.GetComponent<Canvas> ().enabled;
+			if (isHint) {
+				if (Input.GetKeyDown (KeyCode.Return))
+				if (currHint)
+					currHint.transform.GetChild (3).gameObject.GetComponent<Button> ().onClick.Invoke ();
+			}
+		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			jump = true;
 		}
@@ -235,6 +250,15 @@ public class Player : MonoBehaviour {
 
 		DecLife ();
 		// TODO : Show the info that press R to wake her up.
+		StartCoroutine (ShowResurrectHintAfterWait(2f));
+	}
+
+	IEnumerator ShowResurrectHintAfterWait(float duration){
+		yield return new WaitForSeconds(duration);   //Wait
+		GameObject collider = GameObject.Find ("TutorialCollider");
+		collider.SetActive (true);
+		collider.GetComponent<HintScript> ().setHint ("Press R to Resurrect", "NotationsSprites/Others/hazel");
+		collider.GetComponent<HintScript> ().showHint ();
 	}
 
 	public void ResurrectHazel(){
@@ -323,6 +347,22 @@ public class Player : MonoBehaviour {
 
 	}
 
+	IEnumerator ShowGameWonAfterWait(float duration){
+		yield return new WaitForSeconds(duration);
+		GameObject.Find("Hazel").GetComponent<PauseMenu>().isHint = true;
+		GameOverCanvas.GetComponentInChildren<Text>().text = "Bravo ! All Mines Uncovered !";
+		GameOverCanvas.enabled = true;
+	}
+
+	public void ShootGameWon(float duration){
+		StartCoroutine (ShowGameWonAfterWait (duration));
+	}
+
+	public bool IsLastBoxOpened(){
+		return lastBoxOpened;
+	}
+
+
 	private void UpdateScore(){
 		//Debug.Log ("Update Score Called!");
 		Text falseHitText = scoreText.transform.GetChild (0).GetComponent<Text> ();
@@ -333,6 +373,9 @@ public class Player : MonoBehaviour {
 		boxesLeftText.text = "Mines Remaining : " + boxesScore;
 		Text hitText = scoreText.transform.GetChild (3).GetComponent<Text> ();
 		hitText.text = "True Hits Score : " + hitScore;
+		if (boxesScore <= 0) {	
+			lastBoxOpened = true;
+		}
 	}
 
 }
