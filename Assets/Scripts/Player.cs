@@ -90,10 +90,12 @@ public class Player : MonoBehaviour {
 		lastBoxOpened = false;
 		freezePlayer = false;
 		mapOn = false;
-		GameObject.Find ("ShowScene").GetComponent<Button> ().enabled = false;
+		if(GameObject.Find ("ShowScene"))
+			GameObject.Find ("ShowScene").GetComponent<Button> ().enabled = false;
 		myRigidBody = GetComponent<Rigidbody2D> ();
 		playerAnimator = GetComponent<Animator> ();
-		mapCanvas.enabled = false;
+		if(mapCanvas)
+			mapCanvas.enabled = false;
 		if(GameOverCanvas)
 			GameOverCanvas.enabled = false;
 
@@ -355,8 +357,9 @@ public class Player : MonoBehaviour {
 			GameOver ();
 		//Show the map button only when uncovred 10 boxes.
 		if (boxesScore <= 10) {
-			GameObject.Find ("ShowScene").GetComponent<Button> ().enabled = true;
-			//TODO : Give a popup saying You can see map now
+			if(GameObject.Find ("ShowScene"))
+				GameObject.Find ("ShowScene").GetComponent<Button> ().enabled = true;
+				//TODO : Give a popup saying You can see map now
 		}
 		
 			
