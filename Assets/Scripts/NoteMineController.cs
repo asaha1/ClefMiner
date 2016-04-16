@@ -74,7 +74,7 @@ public class NoteMineController : MonoBehaviour {
 		yield return new WaitForSeconds(duration);   //Wait
 		GameObject collider = GameObject.Find ("TutorialCollider");
 		collider.SetActive (true);
-		collider.GetComponent<HintScript> ().setHint ("This is a C-clef\nThis will run away from you\nRun and collect it before it falls", "NotationsSprites/Clefs/C_Clef");
+		collider.GetComponent<HintScript> ().setHint ("This is a C-clef\nIt's also called an ALTO Clef and used for Medium Range Pitches\nThis will run away from you\nRun and collect it before it falls!", "NotationsSprites/Clefs/C_Clef");
 		collider.GetComponent<HintScript> ().showHint ();
 	}
 

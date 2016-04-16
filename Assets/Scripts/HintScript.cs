@@ -72,14 +72,14 @@ public class HintScript : MonoBehaviour {
 			enemySprites [4] = enemies [0];
 			enemySprites [5] = enemies [1];
 
-			enemyNames [0] = "F Clef\nEnemy!";
-			enemyNames [1] = "G Clef\nEnemy!";
-			enemyNames [2] = "F Clef\nEnemy!";
-			enemyNames [3] = "G Clef\nEnemy!";
-			enemyNames [4] = "F Clef\nEnemy!";
-			enemyNames [5] = "G Clef\nEnemy!";
-			SetUpReview ("Following are the Clefs that you are going to find in the main arena. \nFind as much of them " +
-				"as you can.\nPress OKAY to start!", "NotationsSprites/Clefs/C_Clef", "C Clef\nYour Friend!", enemySprites, enemyNames, "NONE");
+			enemyNames [0] = "F Clef or\nBASS Clef\nEnemy!";
+			enemyNames [1] = "G Clef or\nTREBLE Clef\nEnemy!";
+			enemyNames [2] = "F Clef or\nBASS Clef\nEnemy!";
+			enemyNames [3] = "G Clef or\nTREBLE Clef\nEnemy!";
+			enemyNames [4] = "F Clef or\nBASS Clef\nEnemy!";
+			enemyNames [5] = "G Clef or\nTREBLE Clef\nEnemy!";
+			SetUpReview ("They're scattered all over!" +
+				"\n1st one below is your friend, others enemies\nTouch a friend, shoot an enemy!\nPress OKAY to start!", "NotationsSprites/Clefs/C_Clef", "C Clef or\nALTO Clef\nYour Friend!", enemySprites, enemyNames, "NONE");
 			GameObject.Find("Hazel").GetComponent<PauseMenu>().isHint = true;
 			ShowReview ();
 			reloadMain = false;

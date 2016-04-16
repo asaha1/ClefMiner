@@ -69,7 +69,7 @@ public class NoteMineOppController : MonoBehaviour {
 		GameObject collider = GameObject.Find ("TutorialCollider");
 		collider.SetActive (true);
 		string enemyName = gameObject.transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite.name;
-		collider.GetComponent<HintScript> ().setHint ("This is a " + enemyName  + ". This an opponent for you.\nThis will come towards you\nShoot it before it touches!", "NotationsSprites/Clefs/"+enemyName);
+		collider.GetComponent<HintScript> ().setHint ("This is a " + enemyName  + ". This is an opponent for you.\nThis will come towards you\nShoot it before it touches!", "NotationsSprites/Clefs/"+enemyName);
 		collider.GetComponent<HintScript> ().showHint ();
 	}
 

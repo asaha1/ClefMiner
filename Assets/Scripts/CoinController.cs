@@ -83,7 +83,7 @@ public class CoinController : MonoBehaviour {
 					GameObject collider = GameObject.Find ("TutorialCollider");
 					collider.SetActive (true);
 					collider.GetComponent<HintScript> ().reloadNextLevelNeeded= true;
-					collider.GetComponent<HintScript> ().setHint ("Bravo ! You have identified the correct clef.\nClick Okay/Presss Enter to go next.", "NotationsSprites/Clefs/C_Clef");
+					collider.GetComponent<HintScript> ().setHint ("Bravo ! You have identified the correct clef.\nClick Okay/Press Enter for next Tutorials!", "NotationsSprites/Clefs/C_Clef");
 					collider.GetComponent<HintScript> ().showHint ();
 				}
 			}
