@@ -111,6 +111,7 @@ public class CoinOppController : MonoBehaviour {
 			if (coinRb.gravityScale > 0) {
 				Instantiate (coinDestroyAnimation, transform.position, Quaternion.identity);
 				//SceneManager.LoadScene ("Level2_G");
+				Destroy(item.gameObject);
 				Destroy(gameObject);
 				// Need to destroy it's parent.
 				Destroy (transform.parent.gameObject);

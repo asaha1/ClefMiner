@@ -100,6 +100,7 @@ public class CoinController : MonoBehaviour {
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (1f);
 				}
+				Destroy(item.gameObject);
 				Destroy (gameObject);
 				// Need to destroy it's parent.
 				Destroy (transform.parent.gameObject);
