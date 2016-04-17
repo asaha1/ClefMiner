@@ -21,6 +21,10 @@ public class LeftRightWallController : MonoBehaviour {
 			// What else to do?
 			break;
 		case "Coin":
+			Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
+			if (hz.IsLastBoxOpened ()) {
+				hz.ShootGameWon (0.5f);
+			}
 			Destroy (item.gameObject);
 			Destroy (item.transform.parent.gameObject);
 			break;

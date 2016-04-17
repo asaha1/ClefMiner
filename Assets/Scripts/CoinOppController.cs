@@ -84,7 +84,9 @@ public class CoinOppController : MonoBehaviour {
 				Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
 				hz.IncFalseHitScore ();
 				hz.DecHitScore ();
-				hz.MurderHazel ();
+				//hz.MurderHazel ();
+				hz.DecLife ();
+				hz.RepositionHazel (Vector3.zero);
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (0.5f);
 				}

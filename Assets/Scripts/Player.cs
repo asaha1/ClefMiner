@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
 	private bool shoot;
 	private bool slide;
 	private bool freezePlayer;
-	private bool mapOn;
+	//private bool mapOn;
 
 
 	/* Private Serialized. */
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour {
 		flip = true;
 		lastBoxOpened = false;
 		freezePlayer = false;
-		mapOn = false;
+		//mapOn = false;
 		if(GameObject.Find ("ShowScene"))
 			GameObject.Find ("ShowScene").GetComponent<Button> ().enabled = false;
 		myRigidBody = GetComponent<Rigidbody2D> ();
@@ -161,6 +161,7 @@ public class Player : MonoBehaviour {
 	}
 		
 	public void RepositionHazel(Vector3 cameraPos){
+		SoundManager.instance.PlaySingle (deadSound);
 		gameObject.transform.position = cameraPos;
 	}
 
