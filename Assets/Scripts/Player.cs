@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 	public Canvas GameOverCanvas;
+	public Canvas NonBlockingPopupCanvas;
 
 	/* Private Fields. */
 	private Rigidbody2D myRigidBody;
@@ -163,6 +164,7 @@ public class Player : MonoBehaviour {
 	public void RepositionHazel(Vector3 cameraPos){
 		SoundManager.instance.PlaySingle (deadSound);
 		gameObject.transform.position = cameraPos;
+		NonBlockingPopupCanvas.GetComponent<NonBlockingPopupScript> ().showPopup (0f, 0f, "Hazel Resurrected !", "NotationsSprites/Others/hazel", 2f, "blah blah");
 	}
 
 	private void HandleMoves(float horizontal){
