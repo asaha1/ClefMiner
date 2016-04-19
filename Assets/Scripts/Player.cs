@@ -176,8 +176,10 @@ public class Player : MonoBehaviour {
 
 
 	public void ShootNonBlockingPopup(string message, float delay){
-		NonBlockingPopupCanvas.GetComponent<NonBlockingPopupScript> ().showPopup (
-			Vector3.zero, message, "NotationsSprites/Others/hazel", delay, "NONE");
+		if (NonBlockingPopupCanvas) {
+			NonBlockingPopupCanvas.GetComponent<NonBlockingPopupScript> ().showPopup (
+				Vector3.zero, message, "NotationsSprites/Others/hazel", delay, "NONE");
+		}
 	}
 
 	private void HandleMoves(float horizontal){
