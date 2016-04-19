@@ -118,7 +118,7 @@ public class CoinOppController : MonoBehaviour {
 				// +100 hitScore
 				Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
 				hz.IncHitScore ();
-				hz.ShootNonBlockingPopup ("Yay ! Correct Shot !", 2f);
+				hz.ShootNonBlockingPopup ("Yay ! Correct Shot !", 2f, "NONE");
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (0.5f);
 				}

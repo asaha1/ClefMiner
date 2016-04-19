@@ -105,7 +105,7 @@ public class Player : MonoBehaviour {
 		msgpos.x = gameObject.transform.position.x + 400f;
 		msgpos.y = gameObject.transform.position.y + 200f;
 		msgpos.z = gameObject.transform.position.z;
-		ShootNonBlockingPopup ("Meet Hazel !", 5f);
+		ShootNonBlockingPopup ("Explore the arena with Hazel\nFind the C-Clefs and grab them\nShoot others !", 5f, "SHOW_BG");
 
 	}
 
@@ -172,14 +172,14 @@ public class Player : MonoBehaviour {
 		SoundManager.instance.PlaySingle (deadSound);
 		gameObject.transform.position = cameraPos;
 		string msg = "Oops ! You have lost a life.\nOnly " + lifeScore + " lives remaining !";
-		ShootNonBlockingPopup ( msg, 5f);
+		ShootNonBlockingPopup ( msg, 5f,"NONE");
 	}
 
 
-	public void ShootNonBlockingPopup(string message, float delay){
+	public void ShootNonBlockingPopup(string message, float delay, string type){
 		if (NonBlockingPopupCanvas) {
 			NonBlockingPopupCanvas.GetComponent<NonBlockingPopupScript> ().showPopup (
-				Vector3.zero, message, "NotationsSprites/Others/hazel", delay, "NONE");
+				Vector3.zero, message, "NotationsSprites/Others/hazel", delay, type);
 		}
 	}
 

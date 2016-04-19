@@ -4,12 +4,15 @@ using UnityEngine.UI;
 
 public class NonBlockingPopupScript : MonoBehaviour {
 	Image instrImage;
+	Image bgImage;
 	Text instrText;
 	// Use this for initialization
 	void Start () {
-		instrImage = gameObject.transform.GetChild (0).GetComponent<Image> ();
-		instrText = gameObject.transform.GetChild (0).GetComponent<Image> ().transform.GetChild (0).GetComponent<Text> ();
+		bgImage = gameObject.transform.GetChild (0).GetComponent<Image> ();
+		instrImage = gameObject.transform.GetChild (1).GetComponent<Image> ();
+		instrText = gameObject.transform.GetChild (1).GetComponent<Image> ().transform.GetChild (0).GetComponent<Text> ();
 		instrImage.enabled = false;
+		bgImage.enabled = false;
 		instrText.enabled = false;
 	}
 
@@ -26,11 +29,13 @@ public class NonBlockingPopupScript : MonoBehaviour {
 			instrImage.transform.position = position;
 		}*/
 		instrText.text = text;
-		startPopup (timeInSecs);
+		startPopup (timeInSecs, type);
 	}
 
-	public void startPopup(float time){
+	public void startPopup(float time, string type){
 		instrImage.enabled = true;
+		if(type == "SHOW_BG")
+			bgImage.enabled = true;
 		instrText.enabled = true;
 		StartCoroutine(disablePopupAfterWait (time));
 	}
@@ -38,6 +43,7 @@ public class NonBlockingPopupScript : MonoBehaviour {
 	IEnumerator disablePopupAfterWait(float duration){
 		yield return new WaitForSeconds(duration);
 		instrImage.enabled = false;
+		bgImage.enabled = false;
 		instrText.enabled = false;
 	}
 }
