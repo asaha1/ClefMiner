@@ -18,10 +18,13 @@ public class NonBlockingPopupScript : MonoBehaviour {
 
 	}
 
-	public void showPopup(float x, float y, string text, string spriteName, float timeInSecs, string type) {
+	public void showPopup(Vector3 position, string text, string spriteName, float timeInSecs, string type) {
 		Debug.Log ("show non blocking popup");
 		//instrImage.sprite = Resources.Load<Sprite> (spriteName);
-		//instrImage.transform.position = new Vector3 (x, y, transform.position.z);
+		/*if (type == "POSITION_RESET") {
+			Debug.Log ("ShoPopup :: type = " + type);
+			instrImage.transform.position = position;
+		}*/
 		instrText.text = text;
 		startPopup (timeInSecs);
 	}

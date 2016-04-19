@@ -71,6 +71,7 @@ public class CoinController : MonoBehaviour {
 				SoundManager.instance.PlaySingle (coinDestroy);
 				Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
 				hz.IncHitScore ();
+				hz.ShootNonBlockingPopup ("Yay ! Correct Clef Collected !", 2f);
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (0.5f);
 				}
@@ -97,6 +98,7 @@ public class CoinController : MonoBehaviour {
 				Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
 				hz.DecHitScore ();
 				hz.IncFalseHitScore ();
+				hz.ShootNonBlockingPopup ("Oops ! Killing a wrong Clef?", 5f);
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (1f);
 				}

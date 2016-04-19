@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.VersionControl;
 
 public class Player : MonoBehaviour {
 	public Canvas GameOverCanvas;
@@ -73,8 +74,8 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private float jumpForce;
 
-	[SerializeField]
-	private Canvas mapCanvas;
+	//[SerializeField]
+	//private Canvas mapCanvas;
 
 
 
@@ -95,10 +96,16 @@ public class Player : MonoBehaviour {
 			GameObject.Find ("ShowScene").GetComponent<Button> ().enabled = false;
 		myRigidBody = GetComponent<Rigidbody2D> ();
 		playerAnimator = GetComponent<Animator> ();
-		if(mapCanvas)
-			mapCanvas.enabled = false;
+		//if(mapCanvas)
+			//mapCanvas.enabled = false;
 		if(GameOverCanvas)
 			GameOverCanvas.enabled = false;
+
+		Vector3 msgpos;
+		msgpos.x = gameObject.transform.position.x + 400f;
+		msgpos.y = gameObject.transform.position.y + 200f;
+		msgpos.z = gameObject.transform.position.z;
+		ShootNonBlockingPopup ("Meet Hazel !", 5f);
 
 	}
 
@@ -139,12 +146,12 @@ public class Player : MonoBehaviour {
 
 	public void ShowMap(){
 		GetComponent<PauseMenu> ().isHint = true;
-		mapCanvas.enabled = true;
+		//mapCanvas.enabled = true;
 	}
 
 	public void HideMap(){
 		GetComponent<PauseMenu> ().isHint = false;
-		mapCanvas.enabled = false;
+		//mapCanvas.enabled = false;
 	}
 
 	// Update is called once per frame
@@ -164,7 +171,13 @@ public class Player : MonoBehaviour {
 	public void RepositionHazel(Vector3 cameraPos){
 		SoundManager.instance.PlaySingle (deadSound);
 		gameObject.transform.position = cameraPos;
-		NonBlockingPopupCanvas.GetComponent<NonBlockingPopupScript> ().showPopup (0f, 0f, "Hazel Resurrected !", "NotationsSprites/Others/hazel", 2f, "blah blah");
+		ShootNonBlockingPopup ("Oops ! You have lost a life !", 3f);
+	}
+
+
+	public void ShootNonBlockingPopup(string message, float delay){
+		NonBlockingPopupCanvas.GetComponent<NonBlockingPopupScript> ().showPopup (
+			Vector3.zero, message, "NotationsSprites/Others/hazel", delay, "NONE");
 	}
 
 	private void HandleMoves(float horizontal){
@@ -363,9 +376,7 @@ public class Player : MonoBehaviour {
 			if(GameObject.Find ("ShowScene"))
 				GameObject.Find ("ShowScene").GetComponent<Button> ().enabled = true;
 				//TODO : Give a popup saying You can see map now
-		}
-		
-			
+		}			
 	}
 
 	private void GameCompleted(){

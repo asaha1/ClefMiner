@@ -67,7 +67,7 @@ public class CoinOppController : MonoBehaviour {
 			GameObject collider = GameObject.Find ("TutorialCollider");
 			collider.SetActive (true);
 			collider.GetComponent<HintScript> ().reloadNextLevelNeeded = true;
-			string currSpriteName = coinSprite.name;
+			//string currSpriteName = coinSprite.name;
 			collider.GetComponent<HintScript> ().setHint ("Wow ! You killed the enemy Clef.\nClick Okay/Press Enter to go next. ", "NotationsSprites/Others/cool_smiley");
 			collider.GetComponent<HintScript> ().showHint ();
 		}
@@ -118,6 +118,7 @@ public class CoinOppController : MonoBehaviour {
 				// +100 hitScore
 				Player hz = GameObject.Find ("Hazel").GetComponent<Player> (); 
 				hz.IncHitScore ();
+				hz.ShootNonBlockingPopup ("Yay ! Correct Shot !", 2f);
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (0.5f);
 				}
