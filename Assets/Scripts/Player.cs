@@ -357,7 +357,7 @@ public class Player : MonoBehaviour {
 		if (lifeScore <= 0)
 			GameOver ();
 		//Show the map button only when uncovred 10 boxes.
-		if (boxesScore <= 10) {
+		if (boxesScore <= 0) {
 			if(GameObject.Find ("ShowScene"))
 				GameObject.Find ("ShowScene").GetComponent<Button> ().enabled = true;
 				//TODO : Give a popup saying You can see map now
