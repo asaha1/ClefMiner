@@ -10,6 +10,7 @@ public class MenuScript : MonoBehaviour {
 	public Button exitButton;
 	public Canvas instructionCanvas;
 	public Canvas descriptionsCanvas;
+	public Canvas introCanvas;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,8 @@ public class MenuScript : MonoBehaviour {
 			instructionCanvas.enabled = false;	
 		if (descriptionsCanvas != null)
 			descriptionsCanvas.enabled = false;
+		if (introCanvas)
+			introCanvas.enabled = false;
 		Time.timeScale = 0f;
 		if (quitMenu != null)
 			quitMenu.enabled = false;
@@ -38,13 +41,20 @@ public class MenuScript : MonoBehaviour {
 		SceneManager.LoadScene (1);
 	}
 
+	public void ShowIntro(){
+		introCanvas.enabled = true;
+	}
 
+	public void HideIntro(){
+		introCanvas.enabled = false;
+		StartLevel ();
+	}
 	public void StartTutorial(){
 		descriptionsCanvas.enabled = true;
 	}
 	public void CloseDescription(){
 		descriptionsCanvas.enabled = false;
-		StartLevel ();
+		ShowIntro ();
 	}
 
 	public void ExitGame() {

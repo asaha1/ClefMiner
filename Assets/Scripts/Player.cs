@@ -5,7 +5,7 @@ using System.Collections;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.VersionControl;
+//using UnityEditor.VersionControl;
 
 public class Player : MonoBehaviour {
 	public Canvas GameOverCanvas;
@@ -171,7 +171,8 @@ public class Player : MonoBehaviour {
 	public void RepositionHazel(Vector3 cameraPos){
 		SoundManager.instance.PlaySingle (deadSound);
 		gameObject.transform.position = cameraPos;
-		ShootNonBlockingPopup ("Oops ! You have lost a life !", 3f);
+		string msg = "Oops ! You have lost a life.\nOnly " + lifeScore + " lives remaining !";
+		ShootNonBlockingPopup ( msg, 5f);
 	}
 
 
