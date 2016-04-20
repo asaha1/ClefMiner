@@ -10,9 +10,9 @@ public class HellWall : MonoBehaviour {
 		case "Hazel":
 			//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 			// What else to do?
-			PlayerLevel2 hz = item.gameObject.GetComponent<PlayerLevel2> (); 
+			Player hz = item.gameObject.GetComponent<Player> (); 
 			hz.DecLife ();
-			hz.RepositionHazel (Vector3.zero, true, null);
+			hz.RepositionHazel (Vector3.zero);
 			break;
 		case "Coin":
 			if ((SceneManager.GetActiveScene ().name == "Level1Tutorial_1") || ((SceneManager.GetActiveScene ().name == "Level1Tutorial_2"))) {
