@@ -20,7 +20,7 @@ public class HellWallLevel2 : MonoBehaviour {
 				GameObject collider = GameObject.Find ("TutorialCollider");
 				collider.SetActive (true);
 				collider.GetComponent<HintScriptLevel2> ().reloadLevelNeeded = true;
-				collider.GetComponent<HintScriptLevel2> ().setHint ("Oops! The Clef has fallen !\nTake an action before it falls.\nClick Okay/Press Enter to try again. ", "NotationsSprites/Others/sad_smiley");
+				collider.GetComponent<HintScriptLevel2> ().setHint ("Oops! The Note has fallen !\nTake an action before it falls.\nClick Okay/Press Enter to try again. ", "NotationsSprites/Others/sad_smiley");
 				collider.GetComponent<HintScriptLevel2> ().showHint ();
 				Destroy (item.gameObject);
 				Destroy (item.transform.parent.gameObject);

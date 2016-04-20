@@ -76,7 +76,7 @@ public class CoinOppControllerLevel2 : MonoBehaviour {
 			collider.SetActive (true);
 			collider.GetComponent<HintScriptLevel2> ().reloadNextLevelNeeded = true;
 			//string currSpriteName = coinSprite.name;
-			collider.GetComponent<HintScriptLevel2> ().setHint ("Wow ! You killed the enemy Clef.\nClick Okay/Press Enter to go next. ", "NotationsSprites/Others/cool_smiley");
+			collider.GetComponent<HintScriptLevel2> ().setHint ("Wow ! You killed the enemy Note.\nClick Okay/Press Enter to go next. ", "NotationsSprites/Others/cool_smiley");
 			collider.GetComponent<HintScriptLevel2> ().showHint ();
 		}
 	}
@@ -142,7 +142,7 @@ public class CoinOppControllerLevel2 : MonoBehaviour {
 				collider.SetActive (true);
 				collider.GetComponent<HintScriptLevel2> ().reloadMain = true;
 				//string currSpriteName = coinSprite.name;
-				collider.GetComponent<HintScriptLevel2> ().setHint ("Wow ! You killed the enemy Clef.\nClick Okay/Press to review the Clefs!", "NotationsSprites/Others/cool_smiley");
+				collider.GetComponent<HintScriptLevel2> ().setHint ("Wow ! You killed the enemy Note.\nClick Okay/Press to review the Notes!", "NotationsSprites/Others/cool_smiley");
 				collider.GetComponent<HintScriptLevel2> ().showHint ();
 			}
 			break;

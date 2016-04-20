@@ -42,7 +42,7 @@ public class NoteMineControllerLevel2 : MonoBehaviour {
 	public void UnlockMine(){
 		if (caretRenderer.enabled) {
 			Instantiate (explodeAnimation, gameObject.transform.position, Quaternion.identity);
-			SoundManagerLevel2.instance.PlaySingle (caretBlast);
+			SoundManagerLevel2.instance.PlaySingleWithVolume (caretBlast, 1f);
 			caretRenderer.enabled = false;
 			gameObject.transform.GetChild (0).GetComponent<Rigidbody2D> ().gravityScale = 10;
 			//gameObject.transform.GetChild (0).GetComponent<Rigidbody2D> ().isKinematic = true;
@@ -70,7 +70,7 @@ public class NoteMineControllerLevel2 : MonoBehaviour {
 		yield return new WaitForSeconds(duration);   //Wait
 		GameObject collider = GameObject.Find ("TutorialCollider");
 		collider.SetActive (true);
-		collider.GetComponent<HintScriptLevel2> ().setHint ("This is a C-clef\nIt's also called an ALTO Clef and used for Medium Range Pitches\nThis will run away from you\nRun and collect it before it falls!", "NotationsSprites/Clefs/C_Clef");
+		collider.GetComponent<HintScriptLevel2> ().setHint ("This is a G Note !\nThis will run away from you\nRun and collect it before it falls!", "NotationsSprites/Note/G");
 		collider.GetComponent<HintScriptLevel2> ().showHint ();
 	}
 

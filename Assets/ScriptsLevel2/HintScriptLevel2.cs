@@ -72,14 +72,14 @@ public class HintScriptLevel2 : MonoBehaviour {
 			enemySprites [4] = enemies [0];
 			enemySprites [5] = enemies [1];
 
-			enemyNames [0] = "F Clef or\nBASS Clef\nEnemy!";
-			enemyNames [1] = "G Clef or\nTREBLE Clef\nEnemy!";
-			enemyNames [2] = "F Clef or\nBASS Clef\nEnemy!";
-			enemyNames [3] = "G Clef or\nTREBLE Clef\nEnemy!";
-			enemyNames [4] = "F Clef or\nBASS Clef\nEnemy!";
-			enemyNames [5] = "G Clef or\nTREBLE Clef\nEnemy!";
+			enemyNames [0] = "A Note\nEnemy!";
+			enemyNames [1] = "B Note\nEnemy!";
+			enemyNames [2] = "C Note\nEnemy!";
+			enemyNames [3] = "D Note\nEnemy!";
+			enemyNames [4] = "E Note\nEnemy!";
+			enemyNames [5] = "F Note\nEnemy!";
 			SetUpReview ("They're scattered all over!" +
-				"\n1st one below is your friend, others enemies\nTouch a friend, shoot an enemy!\nPress OKAY to start!", "NotationsSprites/Clefs/C_Clef", "C Clef or\nALTO Clef\nYour Friend!", enemySprites, enemyNames, "NONE");
+				"\n1st one below is your friend, others enemies\nTouch a friend, shoot an enemy!\nPress OKAY to start!", "NotationsSprites/Notes/G", "G Note\nYour Friend!", enemySprites, enemyNames, "NONE");
 			GameObject.Find("Hazel").GetComponent<PauseMenuLevel2>().isHint = true;
 			ShowReview ();
 			reloadMain = false;

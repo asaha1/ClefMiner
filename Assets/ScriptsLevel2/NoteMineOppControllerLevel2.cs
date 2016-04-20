@@ -35,7 +35,7 @@ public class NoteMineOppControllerLevel2 : MonoBehaviour {
 	public void UnlockMine(){
 		if (caretRenderer.enabled) {
 			Instantiate (explodeAnimation, gameObject.transform.position, Quaternion.identity);
-			SoundManagerLevel2.instance.PlaySingle (caretBlast);
+			SoundManagerLevel2.instance.PlaySingleWithVolume (caretBlast, 1f);
 			caretRenderer.enabled = false;
 			gameObject.transform.GetChild (0).GetComponent<Rigidbody2D> ().gravityScale = 10;
 			gameObject.transform.GetChild (0).GetComponent<CoinOppControllerLevel2> ().isCoinNaked = true;
@@ -66,7 +66,7 @@ public class NoteMineOppControllerLevel2 : MonoBehaviour {
 		GameObject collider = GameObject.Find ("TutorialCollider");
 		collider.SetActive (true);
 		string enemyName = gameObject.transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite.name;
-		collider.GetComponent<HintScriptLevel2> ().setHint ("This is a " + enemyName  + ". This is an opponent for you.\nThis will come towards you\nShoot it before it touches!", "NotationsSprites/Clefs/"+enemyName);
+		collider.GetComponent<HintScriptLevel2> ().setHint ("This is a " + enemyName  + ". This is an opponent for you.\nThis will come towards you\nShoot it before it touches!", "NotationsSprites/Notes/"+enemyName);
 		collider.GetComponent<HintScriptLevel2> ().showHint ();
 	}
 

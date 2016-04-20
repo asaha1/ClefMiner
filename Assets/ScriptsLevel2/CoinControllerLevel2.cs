@@ -78,7 +78,7 @@ public class CoinControllerLevel2 : MonoBehaviour {
 			//Debug.Log ("Gravity Scale : " + coinRb.gravityScale);
 			if (coinRb.gravityScale > 0) {
 				//Instantiate (coinDestroyAnimation, transform.position, Quaternion.identity);
-				SoundManagerLevel2.instance.PlaySingleWithVolume (coinDestroy, 1f);
+				SoundManagerLevel2.instance.PlaySingleWithVolume (coinDestroy, 0.7f);
 				PlayerLevel2 hz = GameObject.Find ("Hazel").GetComponent<PlayerLevel2> (); 
 				hz.IncHitScore ();
 				hz.ShootNonBlockingPopup ("Yay ! Correct Note [" + noteName + "] Collected !", 2f,"NONE");
@@ -94,7 +94,7 @@ public class CoinControllerLevel2 : MonoBehaviour {
 					GameObject collider = GameObject.Find ("TutorialCollider");
 					collider.SetActive (true);
 					collider.GetComponent<HintScript> ().reloadNextLevelNeeded= true;
-					collider.GetComponent<HintScript> ().setHint ("Bravo ! You have identified the correct clef.\nClick Okay/Press Enter for next Tutorials!", "NotationsSprites/Clefs/C_Clef");
+					collider.GetComponent<HintScript> ().setHint ("Bravo ! You have identified the correct Note.\nClick Okay/Press Enter for next Tutorials!", "NotationsSprites/Notes/G");
 					collider.GetComponent<HintScript> ().showHint ();
 				}
 			}
@@ -122,7 +122,7 @@ public class CoinControllerLevel2 : MonoBehaviour {
 					GameObject collider = GameObject.Find ("TutorialCollider");
 					collider.SetActive (true);
 					collider.GetComponent<HintScript> ().reloadLevelNeeded = true;
-					collider.GetComponent<HintScript> ().setHint ("Ooops! You have killed a friend Note [" + noteName + "]!\nPlease try again. Click Okay/Press Enter.", "NotationsSprites/Clefs/C_Clef");
+					collider.GetComponent<HintScript> ().setHint ("Ooops! You have killed a friend Note [" + noteName + "]!\nPlease try again. Click Okay/Press Enter.", "NotationsSprites/Notes/G");
 					collider.GetComponent<HintScript> ().showHint ();
 				}
 			}

@@ -105,8 +105,6 @@ public class PlayerLevel2 : MonoBehaviour {
 		msgpos.x = gameObject.transform.position.x + 400f;
 		msgpos.y = gameObject.transform.position.y + 200f;
 		msgpos.z = gameObject.transform.position.z;
-		//ShootNonBlockingPopup ("Explore the arena with Hazel\nFind the C-Clefs and grab them\nShoot others !", 5f, "SHOW_BG");
-
 	}
 
 	public void IncHitScore(){
