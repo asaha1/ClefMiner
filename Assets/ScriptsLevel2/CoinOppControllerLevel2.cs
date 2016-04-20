@@ -94,11 +94,22 @@ public class CoinOppControllerLevel2 : MonoBehaviour {
 				hz.DecHitScore ();
 				//hz.MurderHazel ();
 				hz.DecLife ();
-				string tempMsg = "Oops! That was a " + noteName + "-Note\nNot your friend !\nShoot before it does.";
-				hz.RepositionHazel (Vector3.zero, false, tempMsg);
+
+
+				if (hz.IsDeltaBad ()) {
+					hz.SetReviewActive (true);
+					string tempMsg = "Oops! That was a " + noteName + "-Note\nNot your friend !\nReview Notes above";
+					hz.RepositionHazel (Vector3.zero, false, tempMsg);
+				} else {
+					hz.SetReviewActive (false);
+					string tempMsg = "Oops! That was a " + noteName + "-Note\nNot your friend !\nShoot before it does.";
+					hz.RepositionHazel (Vector3.zero, false, tempMsg);
+				}
+
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (0.5f);
 				}
+
 				Destroy(gameObject);
 				// Need to destroy it's parent.
 				Destroy (transform.parent.gameObject);
@@ -127,6 +138,10 @@ public class CoinOppControllerLevel2 : MonoBehaviour {
 				// +100 hitScore
 				PlayerLevel2 hz = GameObject.Find ("Hazel").GetComponent<PlayerLevel2> (); 
 				hz.IncHitScore ();
+				if (hz.IsDeltaBad ())
+					hz.SetReviewActive (true);
+				else
+					hz.SetReviewActive (false);
 				SoundManagerLevel2.instance.PlaySingleWithVolume (cointDestroy, 1f);
 				hz.ShootNonBlockingPopup ("Yay ! Correctly Shot a " + noteName + "-Note !", 2f, "NONE");
 				if (hz.IsLastBoxOpened ()) {

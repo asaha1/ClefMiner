@@ -85,6 +85,10 @@ public class CoinControllerLevel2 : MonoBehaviour {
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (0.5f);
 				}
+				if (hz.IsDeltaBad ())
+					hz.SetReviewActive (true);
+				else
+					hz.SetReviewActive (false);
 				Destroy (gameObject);
 				// Need to destroy it's parent.
 				Destroy (transform.parent.gameObject);
@@ -108,7 +112,17 @@ public class CoinControllerLevel2 : MonoBehaviour {
 				PlayerLevel2 hz = GameObject.Find ("Hazel").GetComponent<PlayerLevel2> (); 
 				hz.DecHitScore ();
 				hz.IncFalseHitScore ();
-				hz.ShootNonBlockingPopup ("Oops ! Killing a friend Note " + noteName + " ?", 5f, "NONE");
+				if (hz.IsDeltaBad ()) {
+					hz.SetReviewActive (true);
+					hz.ShootNonBlockingPopup ("Oops ! Killing a friend Note " + noteName + " ?" +
+					"\nPlease Review The Notes above", 5f, "NONE");
+				} else {
+					hz.SetReviewActive (false);
+					hz.ShootNonBlockingPopup ("Oops ! Killing a friend Note " + noteName + " ?" +
+						"Careful !", 5f, "NONE");
+				}
+				
+				
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (1f);
 				}

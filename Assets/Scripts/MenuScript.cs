@@ -41,6 +41,11 @@ public class MenuScript : MonoBehaviour {
 		SceneManager.LoadScene (1);
 	}
 
+
+	public void StartNoteLevel(){
+		SceneManager.LoadScene (4);
+	}
+
 	public void ShowIntro(){
 		introCanvas.enabled = true;
 	}
