@@ -45,9 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BonusBoxPlatformInformer.cs" />
-     <Compile Include="Assets\NonBlockingPopupController.cs" />
      <Compile Include="Assets\Scripts\BonusBoxController.cs" />
+     <Compile Include="Assets\Scripts\BonusBoxPlatformInformer.cs" />
      <Compile Include="Assets\Scripts\BulletController.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\CoinController.cs" />
@@ -59,6 +58,7 @@
      <Compile Include="Assets\Scripts\LeftRightWallController.cs" />
      <Compile Include="Assets\Scripts\MenuScript.cs" />
      <Compile Include="Assets\Scripts\MovingLadderController.cs" />
+     <Compile Include="Assets\Scripts\NonBlockingPopupController.cs" />
      <Compile Include="Assets\Scripts\NonBlockingPopupScript.cs" />
      <Compile Include="Assets\Scripts\NoteMineController.cs" />
      <Compile Include="Assets\Scripts\NoteMineOppController.cs" />
@@ -67,6 +67,28 @@
      <Compile Include="Assets\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\StartNote.cs" />
      <Compile Include="Assets\Scripts\testTrigger.cs" />
+     <Compile Include="Assets\ScriptsLevel2\BonusBoxControllerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\BonusBoxPlatformInformerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\BulletControllerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\CameraFollowLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\CoinControllerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\CoinOppControllerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\ColliderLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\FriendEnemyManagerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\HellWallLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\HintScriptLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\LeftRightWallControllerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\MenuScriptLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\MovingLadderControllerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\NonBlockingPopupControllerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\NonBlockingPopupScriptLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\NoteMineControllerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\NoteMineOppControllerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\PauseMenuLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\PlayerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\SoundManagerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\StartNoteLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\testTriggerLevel2.cs" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
