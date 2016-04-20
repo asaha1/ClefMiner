@@ -78,10 +78,10 @@ public class CoinControllerLevel2 : MonoBehaviour {
 			//Debug.Log ("Gravity Scale : " + coinRb.gravityScale);
 			if (coinRb.gravityScale > 0) {
 				//Instantiate (coinDestroyAnimation, transform.position, Quaternion.identity);
-				SoundManagerLevel2.instance.PlaySingleWithVolume (coinDestroy, 0.7f);
+				SoundManagerLevel2.instance.PlaySingleWithVolume (coinDestroy, 0.6f);
 				PlayerLevel2 hz = GameObject.Find ("Hazel").GetComponent<PlayerLevel2> (); 
 				hz.IncHitScore ();
-				hz.ShootNonBlockingPopup ("Yay ! Correct Note [" + noteName + "] Collected !", 2f,"NONE");
+				hz.ShootNonBlockingPopup ("Yay ! Correct Note " + noteName + " Collected !", 2f,"NONE");
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (0.5f);
 				}
@@ -108,7 +108,7 @@ public class CoinControllerLevel2 : MonoBehaviour {
 				PlayerLevel2 hz = GameObject.Find ("Hazel").GetComponent<PlayerLevel2> (); 
 				hz.DecHitScore ();
 				hz.IncFalseHitScore ();
-				hz.ShootNonBlockingPopup ("Oops ! Killing a friend Note [" + noteName + "] ?", 5f, "NONE");
+				hz.ShootNonBlockingPopup ("Oops ! Killing a friend Note " + noteName + " ?", 5f, "NONE");
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (1f);
 				}

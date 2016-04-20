@@ -101,6 +101,7 @@ public class PlayerLevel2 : MonoBehaviour {
 		if(GameOverCanvas)
 			GameOverCanvas.enabled = false;
 
+		scoreText.transform.GetChild (5).gameObject.SetActive (false);
 		Vector3 msgpos;
 		msgpos.x = gameObject.transform.position.x + 400f;
 		msgpos.y = gameObject.transform.position.y + 200f;
@@ -382,7 +383,9 @@ public class PlayerLevel2 : MonoBehaviour {
 			if(GameObject.Find ("ShowScene"))
 				GameObject.Find ("ShowScene").GetComponent<Button> ().enabled = true;
 				//TODO : Give a popup saying You can see map now
-		}			
+		}
+		if(falseHitScore > hitScore)
+			scoreText.transform.GetChild (5).gameObject.SetActive (true);
 	}
 
 	private void GameCompleted(){

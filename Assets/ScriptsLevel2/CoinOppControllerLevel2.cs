@@ -94,7 +94,7 @@ public class CoinOppControllerLevel2 : MonoBehaviour {
 				hz.DecHitScore ();
 				//hz.MurderHazel ();
 				hz.DecLife ();
-				string tempMsg = "Oops! The wrong Note [" + noteName + "] has touched you.\nShoot before it does.";
+				string tempMsg = "Oops! That was a " + noteName + "-Note\nNot your friend !\nShoot before it does.";
 				hz.RepositionHazel (Vector3.zero, false, tempMsg);
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (0.5f);
@@ -128,7 +128,7 @@ public class CoinOppControllerLevel2 : MonoBehaviour {
 				PlayerLevel2 hz = GameObject.Find ("Hazel").GetComponent<PlayerLevel2> (); 
 				hz.IncHitScore ();
 				SoundManagerLevel2.instance.PlaySingleWithVolume (cointDestroy, 1f);
-				hz.ShootNonBlockingPopup ("Yay ! Correctly Shot Note [" + noteName + "]!", 2f, "NONE");
+				hz.ShootNonBlockingPopup ("Yay ! Correctly Shot a " + noteName + "-Note !", 2f, "NONE");
 				if (hz.IsLastBoxOpened ()) {
 					hz.ShootGameWon (0.5f);
 				}
