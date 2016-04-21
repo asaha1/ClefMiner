@@ -2,6 +2,9 @@
 using System.Collections;
 
 // This Class is designed similar to unity tutorials.
+using System;
+
+
 public class SoundManagerLevel2 : MonoBehaviour 
 {
 	public AudioSource efxSource;
@@ -9,6 +12,10 @@ public class SoundManagerLevel2 : MonoBehaviour
 	public AudioSource notePlaySource;
 	public static SoundManagerLevel2 instance = null;
 
+
+	void Start(){
+		//musicSource.Play ();
+	}
 
 	void Awake ()
 	{

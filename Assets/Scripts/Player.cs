@@ -401,7 +401,14 @@ public class Player : MonoBehaviour {
 		PaintGameOverMenu ();
 		GameObject.Find("Hazel").GetComponent<PauseMenu>().isHint = true;
 		GameOverCanvas.GetComponentInChildren<Text>().text = "Bravo ! All Mines Uncovered !";
+		GameOverCanvas.transform.GetChild (2).GetComponent<Text> ().text = "Next Level";
+		// Set the listener to the next level .
+		GameOverCanvas.transform.GetChild (2).GetComponent<Button> ().onClick.AddListener (delegate () { this.LoadNoteLevel(); });
 		GameOverCanvas.enabled = true;
+	}
+
+	private void LoadNoteLevel(){
+		SceneManager.LoadScene (4);
 	}
 
 	public void ShootGameWon(float duration){

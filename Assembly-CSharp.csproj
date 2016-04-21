@@ -78,6 +78,7 @@
      <Compile Include="Assets\ScriptsLevel2\HellWallLevel2.cs" />
      <Compile Include="Assets\ScriptsLevel2\HintScriptLevel2.cs" />
      <Compile Include="Assets\ScriptsLevel2\LeftRightWallControllerLevel2.cs" />
+     <Compile Include="Assets\ScriptsLevel2\Level2TutorialController.cs" />
      <Compile Include="Assets\ScriptsLevel2\MenuScriptLevel2.cs" />
      <Compile Include="Assets\ScriptsLevel2\MovingLadderControllerLevel2.cs" />
      <Compile Include="Assets\ScriptsLevel2\NonBlockingPopupControllerLevel2.cs" />

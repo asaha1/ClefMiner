@@ -60,6 +60,10 @@ public class PauseMenu : MonoBehaviour {
 		//pausedMenuCanvas.SetActive (true);
 	}
 
+	public void StartNoteLevel(){
+		SceneManager.LoadScene (4);
+	}
+
 	public void StartMainMenu(){
 		SceneManager.LoadScene (0);
 	}
