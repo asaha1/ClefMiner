@@ -87,7 +87,7 @@ public class PlayerLevel2 : MonoBehaviour {
 		hitScore = 0;
 		falseHitScore = 0;
 		lifeScore = 3;
-		boxesScore = 20;
+		boxesScore = 2;
 		flip = true;
 		lastBoxOpened = false;
 		freezePlayer = false;
@@ -412,7 +412,7 @@ public class PlayerLevel2 : MonoBehaviour {
 	IEnumerator ShowGameWonAfterWait(float duration){
 		yield return new WaitForSeconds(duration);
 		PaintGameOverMenu ();
-		GameObject.Find("Hazel").GetComponent<PauseMenu>().isHint = true;
+		GameObject.Find("Hazel").GetComponent<PauseMenuLevel2>().isHint = true;
 		GameOverCanvas.GetComponentInChildren<Text>().text = "Bravo ! All Mines Uncovered !";
 		GameOverCanvas.enabled = true;
 	}
