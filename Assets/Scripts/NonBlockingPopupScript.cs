@@ -22,7 +22,7 @@ public class NonBlockingPopupScript : MonoBehaviour {
 	}
 
 	public void showPopup(Vector3 position, string text, string spriteName, float timeInSecs, string type) {
-		Debug.Log ("show non blocking popup");
+		//Debug.Log ("show non blocking popup");
 		//instrImage.sprite = Resources.Load<Sprite> (spriteName);
 		/*if (type == "POSITION_RESET") {
 			Debug.Log ("ShoPopup :: type = " + type);

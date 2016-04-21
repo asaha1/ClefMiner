@@ -78,7 +78,7 @@ public class CoinControllerLevel2 : MonoBehaviour {
 			//Debug.Log ("Gravity Scale : " + coinRb.gravityScale);
 			if (coinRb.gravityScale > 0) {
 				//Instantiate (coinDestroyAnimation, transform.position, Quaternion.identity);
-				SoundManagerLevel2.instance.PlaySingleWithVolume (coinDestroy, 0.6f);
+				SoundManagerLevel2.instance.PlaySingleWithVolume (coinDestroy, 0.5f);
 				PlayerLevel2 hz = GameObject.Find ("Hazel").GetComponent<PlayerLevel2> (); 
 				hz.IncHitScore ();
 				hz.ShootNonBlockingPopup ("Yay ! Correct Note " + noteName + " Collected !", 2f,"NONE");

@@ -95,7 +95,7 @@ public class Level2TutorialController : MonoBehaviour {
 		enemyNames [3] = "D Note\nEnemy!";
 		enemyNames [4] = "E Note\nEnemy!";
 		enemyNames [5] = "F Note\nEnemy!";
-		SetUpReviewInternal ("Similar to LEVEL 1, Notes now !" +
+		SetUpReviewInternal ("Similar to LEVEL 1, you will identify Notes now !" +
 			"\n1st one below is your friend, others enemies\nTouch a friend, shoot an enemy!\nPress the Notes below to hear the Sound and Press OKAY to start!", "NotationsSprites/Notes/G", "G Note\nYour Friend!", enemySprites, enemyNames, "NONE");
 	}
 
