@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class NonBlockingPopupController : MonoBehaviour {
+public class NonBlockingPopupControllerLevel2 : MonoBehaviour {
 	Image instrImage;
 	Text instrText;
 	// Use this for initialization
@@ -37,4 +37,4 @@ public class NonBlockingPopupController : MonoBehaviour {
 		instrImage.enabled = false;
 		instrText.enabled = false;
 	}
-}
+}*/

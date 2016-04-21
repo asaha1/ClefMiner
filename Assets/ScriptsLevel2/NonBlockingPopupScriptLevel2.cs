@@ -28,7 +28,8 @@ public class NonBlockingPopupScriptLevel2 : MonoBehaviour {
 			Debug.Log ("ShoPopup :: type = " + type);
 			instrImage.transform.position = position;
 		}*/
-		instrText.text = text;
+		if(instrText)
+			instrText.text = text;
 		startPopup (timeInSecs, type);
 	}
 

@@ -87,7 +87,7 @@ public class PlayerLevel2 : MonoBehaviour {
 		hitScore = 0;
 		falseHitScore = 0;
 		lifeScore = 3;
-		boxesScore = 2;
+		boxesScore = 20;
 		flip = true;
 		lastBoxOpened = false;
 		freezePlayer = false;
