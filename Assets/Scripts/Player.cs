@@ -269,7 +269,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.Z)) {
-			attack = true;
+			shoot = true;
 		}
 
 		if (Input.GetKeyDown (KeyCode.RightShift) || Input.GetKeyDown (KeyCode.X)) {
