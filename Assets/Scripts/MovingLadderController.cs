@@ -44,6 +44,7 @@ public class MovingLadderController : MonoBehaviour {
 			if (gameObject.transform.position.y > item.gameObject.transform.position.y) {
 				Player hz = GameObject.Find ("Hazel").GetComponent<Player> ();
 				ladderDirection = ladderDirection * (-1);
+				hz.DecLife ();
 				hz.RepositionHazel (Vector3.zero);
 			}
 			break;
