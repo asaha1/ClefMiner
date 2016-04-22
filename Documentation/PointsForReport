@@ -1,0 +1,93 @@
+THE RUBRICS:
+
+Introduction motivates problem
+Target audience clearly described
+Learning Objectives clearly described
+Architecture clearly described
+Tutoring functionalities clearly described
+Gameplay clearly described
+Grammatically and stylistically correct
+Uniform writing style
+Quality graphics and uniform document design
+Length appropriate
+Asset sources credited
+
+
+
+Asset Sources Used:
+
+Self Made Resources, Softwares Used:
+-> using Photoshop CS5
+-> Garage Band
+-> Audacity
+-> POD HD 300 Edit
+-> unity , Off Course !
+
+Downloaded Resources:
+- Unity Store : https://www.assetstore.unity3d.com/en/
+- http://opengameart.org/
+- http://www.freesound.org/
+- http://www.gameart2d.com/
+- https://www.youtube.com/watch?v=SCRupyidkYA
+- https://unity3d.com/learn/tutorials
+
+
+
+Points Tobe Covered:
+
+Gameplay Mechanics:
+- The story of hazel.
+- Hazel's moves and animations
+- Hazel's attacks
+- Death Criteria
+- Two types of Note Mines and their controllers.
+- The behaviours of the Note Coins : 4 Scenarios and Score Updates
+- Minimap
+- The Overall Feedback and the Immediate Feedback screens(On Delta) - Blocking and the Non Blocking Popup.
+- The Review Screen on top; Dynamic appearance on the Delta.
+- Tutotials
+- Review Canvas of Tutorials. 7 Slots with activity.
+- The Bonus Boxes and Moving ladders.
+- Details of the 2 levels.
+- Static and Dynamic Notes, without orientation.
+- The reviews snapshots and results.(Survey)
+- The Github Link.
+- Basics of Music Theory.
+- Snapsots from the gameplay.
+- All the student modelling and stuff.
+
+
+Domain Model - Clefs, Notes, Scales (future work)
+Student Model
+Programmed student model
+Keeps track of #clefs left, #correct clefs hit, #lives
+Pedagogical Model - Sequential
+Tutor-Student Interface Model
+Instructions
+Hints
+Non-blocking pop-ups
+
+
+- target audience.
+- Static Sound Manager with different channels for different kind of playbacks.
+- Friend Enemy manager and dynamic loading of resources- Generalized Design.
+- The Scoring conditions(True and False Hits) and the Delta. How is that effective. need to use more complex in future.
+- The Future, the Procedural Content generation and other stuff.
+- Timeouts.
+- The movement of frineds and enemies.
+- Active and Passive leanring with Friends and enemies.
+- Audio Feedbacks, Feedbacks on Wrong Notes as well !
+- Backing track of the same scale !
+- Check if anything else was added, check the rough sheets!
+- Describe the Code Design.
+
+
+
+
+Future Work:
+Level 3 containing major diatonic scales, where you have to collect the notes in a sequence to get the scores.
+Every level will have each note as a friend once to leverage the active learning.
+Collect the mistaken pairs and suggest.
+Conduct the test on more users and fine tune.
+
+
