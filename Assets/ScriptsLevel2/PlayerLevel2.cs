@@ -170,7 +170,13 @@ public class PlayerLevel2 : MonoBehaviour {
 	public void RepositionHazel(Vector3 cameraPos, bool deadSoundPlay, string givenMsg){
 		if(deadSoundPlay)
 			SoundManagerLevel2.instance.PlaySingle (deadSound);
-		gameObject.transform.position = cameraPos;
+		// Override position for Level 2: TODO : Do it properly
+		Vector3 tempPos;
+		tempPos.x = -22.54f;
+		tempPos.y = -0.79f;
+		tempPos.z = 0f;
+		//gameObject.transform.position = cameraPos;
+		gameObject.transform.position = tempPos;
 		string msg;
 		if (givenMsg != null)
 			msg = givenMsg + "\nYou have lost a life !";
